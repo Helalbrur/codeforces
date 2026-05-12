@@ -1,0 +1,56 @@
+# Fake News (easy) (CF 802G1)
+# Rating  : 800
+# Tags    : implementation, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-31
+# Attempt : #1
+# URL     : https://codeforces.com/contest/802/problem/G1
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    //freopen("input.txt","r",stdin);
+    string text;
+    cin>>text;
+    bool heidi[10];
+    for(int i=0;i<=4;i++)
+    {
+        heidi[i]=false;
+    }
+    for(int i=0;i<text.length();i++)
+    {
+         if(text[i]=='h')
+        {
+            heidi[0]=true;
+         }
+        else if(heidi[0]==true && text[i]=='e')
+        {
+            heidi[1]=true;
+         }
+        else if(heidi[0]==true && heidi[1]==true && heidi[2]==false && text[i]=='i')
+        {
+            heidi[2]=true;
+         }
+        else if(heidi[0]==true && heidi[1]==true && heidi[2]==true && text[i]=='d')
+        {
+            heidi[3]=true;
+         }
+        else if(heidi[0]==true && heidi[1]==true && heidi[2]==true && heidi[3]==true && text[i]=='i')
+        {
+            heidi[4]=true;
+         }
+     }
+    for(int i=0;i<=4;i++)
+    {
+        if(heidi[i]==false)
+        {
+            cout<<"NO"<<endl;
+            return 0;
+        }
+    }
+    cout<<"YES"<<endl;
+}

@@ -1,0 +1,16 @@
+# Patrick and Shopping (CF 599A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/599/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    long long int a,b,c;
+    cin>>a>>b>>c;
+    cout<<min((2*a+2*c),min(2*(c+b),min(a+b+c,2*(a+b))))<<endl;
+}

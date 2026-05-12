@@ -1,0 +1,27 @@
+# Collecting Coins (CF 1294A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1294/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        long long int a,b,c,n;
+        cin>>a>>b>>c>>n;
+        long long int s=a+b+c;
+        long long int mx=max(a,max(b,c));
+        long long int r=mx*3-s;
+        if(n>=r && (n-r)%3==0){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+# Stones on the Table (CF 266A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/266/problem/A
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    string a;
+    cin>>a;
+    int h=n,i=1;
+    while(i<h){
+        if(a[i]==a[i-1]){
+            a.erase(i,1);
+            h--;
+            i--;
+        }
+        i++;
+    }
+    cout<<n-a.length()<<endl;
+}

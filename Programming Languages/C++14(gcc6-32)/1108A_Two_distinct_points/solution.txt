@@ -1,0 +1,28 @@
+# Two distinct points (CF 1108A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1108/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int q;
+    cin>>q;
+    int  l1,r1,l2,r2;
+    for(int i=1;i<=q;i++){
+        cin>>l1>>r1>>l2>>r2;
+        if(l1!=l2){
+            cout<<l1<<" "<<l2<<endl;
+        }else if(r1-l1>1){
+            cout<<l1+1<<" "<<l2<<endl;
+        }else if(r2-l2>1){
+            cout<<l1<<" "<<l2+1<<endl;
+        }else{
+            cout<<l1<<" "<<r2<<endl;
+        }
+    }
+}

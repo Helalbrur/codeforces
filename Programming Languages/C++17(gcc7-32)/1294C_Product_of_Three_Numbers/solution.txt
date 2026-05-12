@@ -1,0 +1,72 @@
+# Product of Three Numbers (CF 1294C)
+# Rating  : 1300
+# Tags    : greedy, math, number theory
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1294/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        set<int> div;
+         int r=sqrt(n+1);
+        for(int i=2;i<=r;i++){
+            if(n%i==0){
+                int p=sqrt(i+1);
+                div.insert(i);
+                div.insert(n/i);
+                for(int j=2;j<=p;j++){
+                    if(i%j==0){
+                        div.insert(i/j);
+                        div.insert(j);
+                    }
+                }
+                p=sqrt(n/i +1);
+                for(int j=2;j<=p;j++){
+                    if((n/i)%j==0){
+                        div.insert((n/i)/j);
+                        div.insert(j);
+                    }
+                }
+            }
+        }
+        vector<int> vec;
+        for(int c:div){
+            vec.push_back(c);
+        }
+         bool ok=false;
+        int x,y,z;
+        for(int i=0;i<vec.size();i++){
+            for(int j=i+1;j<vec.size();j++){
+                for(int k=j+1;k<vec.size();k++){
+                    if(vec[i]*vec[j]*vec[k]==n){
+                        x=vec[i];
+                        y=vec[j];
+                        z=vec[k];
+                        ok=true;
+                        break;
+                    }
+                }
+                if(ok==true){
+                    break;
+                }
+            }
+            if(ok==true){
+                    break;
+            }
+        }
+        if(ok==false){
+            cout<<"NO"<<endl;
+        }else{
+            cout<<"YES"<<endl;
+            cout<<x<< " "<<y<<" "<<z<<endl;
+        }
+    }
+}

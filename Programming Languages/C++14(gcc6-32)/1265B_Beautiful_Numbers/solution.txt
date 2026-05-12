@@ -1,0 +1,36 @@
+# Beautiful Numbers (CF 1265B)
+# Rating  : 1300
+# Tags    : data structures, implementation, math, two pointers
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-12-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1265/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n+2];
+        int d[n+2];
+        string b;
+        int mx=0,mn=n+1;
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+            d[a[i]]=i;
+         }
+        for(int i=1;i<=n;i++){
+            mx=max(mx,d[i]);
+            mn=min(mn,d[i]);
+            if(mx-mn<i){
+                b+='1';
+            }else{
+                b+='0';
+            }
+         }
+        cout<<b<<endl;
+    }
+}

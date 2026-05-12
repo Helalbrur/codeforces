@@ -1,0 +1,26 @@
+# Dice Tower (CF 1266B)
+# Rating  : 1000
+# Tags    : constructive algorithms, math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1266/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int64_t n;
+        cin>>n;
+        if(n>14 && n%14>=1 && n%14<=6)
+        {
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+}

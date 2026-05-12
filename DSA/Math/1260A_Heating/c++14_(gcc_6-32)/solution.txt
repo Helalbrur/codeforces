@@ -1,0 +1,29 @@
+# Heating (CF 1260A)
+# Rating  : 1000
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-27
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1260/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    while(n--){
+       int64_t c,s;
+        cin>>c>>s;
+        if(c>=s){
+            cout<<s<<endl;
+        }
+        else if(s%c==0){
+            cout<<c*(s/c)*(s/c)<<endl;
+        }else{
+            int64_t p=s%c;
+            int64_t x=s/c;
+            cout<<p*(x+1)*(x+1)+(c-p)*(x*x)<<endl;
+        }
+    }
+}

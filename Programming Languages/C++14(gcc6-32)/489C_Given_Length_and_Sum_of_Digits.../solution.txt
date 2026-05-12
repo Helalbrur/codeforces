@@ -1,0 +1,80 @@
+# Given Length and Sum of Digits... (CF 489C)
+# Rating  : 1400
+# Tags    : dp, greedy, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/489/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,s;
+    cin>>n>>s;
+    if((s==0 && n>1) || s>n*9)
+    {
+        cout<<"-1 -1"<<endl;
+        return 0;
+    }
+    int k=s;
+    vector<int> v;
+    while(k>9)
+    {
+        v.push_back(9);
+        k-=9;
+    }
+    v.push_back(k);
+    int x=n;
+    int l=0;
+    if(v.size()<n)
+    {
+        cout<<1;
+        x--;
+        l=v.size()-1;
+        int p=l;
+        for(int i=2;i<=n;i++)
+        {
+            if(x>v.size())
+            {
+                cout<<0;
+                x--;
+            }
+            else{
+                if(l==p )
+                    cout<<v[l--]-1;
+                else
+                    cout<<v[l--];
+            }
+        }
+     }
+    else
+    {
+        cout<<k;
+        x=n-1;
+        for(int i=2;i<=n;i++)
+        {
+            if(v.size()<=x)
+            {
+                 cout<<0;
+                 x--;
+            }
+            else
+                cout<<v[l++];
+        }
+    }
+     cout<<" ";
+    x=v.size();
+    l=0;
+    for(int i=1;i<=n;i++)
+    {
+        if(x)
+        {
+             cout<<v[l++];
+             x--;
+        }
+        else
+            cout<<0;
+    }
+    cout<<endl;
+}

@@ -1,0 +1,31 @@
+# Free Ice Cream (CF 686A)
+# Rating  : 800
+# Tags    : constructive algorithms, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/686/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int64_t n,x;
+    cin>>n>>x;
+    int64_t cnt=0;
+    for(int i=0;i<n;i++){
+        char c;
+        int64_t p;
+        cin>>c>>p;
+        if(c=='+'){
+            x+=p;
+        }else{
+            if(x>=p){
+                x-=p;
+            }else{
+                cnt++;
+            }
+        }
+    }
+    cout<<x<<" "<<cnt<<endl;
+}

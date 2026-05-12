@@ -1,0 +1,23 @@
+# In Search of an Easy Problem (CF 1030A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-01
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1030/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int a;
+    string output="EASY";
+    for(int i=0;i<n;i++){
+        cin>>a;
+        if(a==1 && output=="EASY"){
+            output="HARD";
+        }
+    }
+    cout<<output<<endl;
+ }

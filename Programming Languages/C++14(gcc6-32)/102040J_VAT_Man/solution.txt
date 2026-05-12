@@ -1,0 +1,22 @@
+# VAT Man (CF 102040J)
+# Rating  : ?
+# Tags    : 
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-05-07
+# Attempt : #1
+# URL     : https://codeforces.com/contest/102040/problem/J
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+    cin>>t;
+    while(t--){
+        int a;
+        cin>>a;
+                double b=(double)a;
+        b=(b*15)/100.0+b;
+       printf("%.2f\n",b);
+    }
+}

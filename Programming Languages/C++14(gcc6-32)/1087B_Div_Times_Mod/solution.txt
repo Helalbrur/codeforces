@@ -1,0 +1,39 @@
+# Div Times Mod (CF 1087B)
+# Rating  : 1100
+# Tags    : 
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2018-12-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1087/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> v;
+void div(int n){
+        for(int i=1;i<=sqrt(n);i++){
+        if(n%i==0){
+            v.push_back(i);
+                    }
+    }
+    for(int j=v.size()-1;j>=0;j--){
+        int b=v[j];
+        if( b*b!=n){
+            v.push_back(n/b);
+        }
+    }
+}
+int main(){
+    int n,k;
+    cin>>n>>k;
+    int mn=INT_MAX;
+    for(int i=1;i<k;i++){
+        if(n%i==0){
+            int a=n/i;
+            int x=a*k+i;
+            if((x%k)*(x/k)==n){
+                                mn=min(mn,x);
+            }
+        }
+    }
+    cout<<mn<<endl;
+        }

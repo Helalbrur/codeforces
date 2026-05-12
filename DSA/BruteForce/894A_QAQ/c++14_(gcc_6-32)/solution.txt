@@ -1,0 +1,27 @@
+# QAQ (CF 894A)
+# Rating  : 800
+# Tags    : brute force, dp
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/894/problem/A
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+string s;
+int main()
+{
+    cin>>s;
+    int cnt=0;
+    for(int i=0;i<s.length();i++){
+        for(int j=i+1;j<s.length();j++){
+            for(int k=j+1;k<s.length();k++){
+                if(s[i]=='Q' && s[j]=='A' && s[k]=='Q'){
+                    cnt++;
+                }
+            }
+        }
+    }
+    cout<<cnt<<endl;
+}

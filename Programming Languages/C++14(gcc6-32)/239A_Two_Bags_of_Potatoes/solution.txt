@@ -1,0 +1,41 @@
+# Two Bags of Potatoes (CF 239A)
+# Rating  : 1200
+# Tags    : greedy, implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-26
+# Attempt : #1
+# URL     : https://codeforces.com/contest/239/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    int n,y,k;
+    cin>>y>>k>>n;
+    if(n<=y)
+    {
+        cout<<"-1"<<endl;
+        return 0;
+    }
+    bool flag=false;
+    int x=k;
+    int i=1;
+    while(x*i<=n)
+    {
+         if((x*i)%k==0 && (i*x)>y )
+        {
+            if(flag)
+            cout<<" ";
+            cout<<x*i-y;
+            flag=true;
+        }
+        i++;
+    }
+    if(flag==false)
+    {
+        cout<<"-1";
+    }
+    cout<<endl;
+}

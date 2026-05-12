@@ -1,0 +1,30 @@
+# Bad Ugly Numbers (CF 1326A)
+# Rating  : 1000
+# Tags    : constructive algorithms, number theory
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2020-03-19
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1326/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        int sum=2;
+        s+='2';
+        for(int i=2;i<=n;i++){
+            s+='3';
+            sum+=3;
+        }
+        if(sum%3==0 || (s[n-1]-'0')%2==0){
+            s="-1";
+        }
+        cout<<s<<"\n";
+    }
+}

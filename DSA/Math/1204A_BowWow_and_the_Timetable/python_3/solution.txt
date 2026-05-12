@@ -1,0 +1,27 @@
+# BowWow and the Timetable (CF 1204A)
+# Rating  : 1000
+# Tags    : math
+# Lang    : Python 3
+# Solved  : 2019-08-20
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1204/problem/A
+
+def binaryToDecimal(binary): 
+          binary1 = binary 
+    decimal, i, n = 0, 0, 0
+    while(binary != 0): 
+        dec = binary % 10
+        decimal = decimal + dec * pow(2, i) 
+        binary = binary//10
+        i += 1
+    return decimal    
+        # Driver code 
+if __name__ == '__main__': 
+    n=binaryToDecimal(int(input())) 
+    cnt=0
+    for i in range(0,n+1):
+        if n>pow(4, i):
+            cnt+=1
+        else:
+            break
+    print(cnt)

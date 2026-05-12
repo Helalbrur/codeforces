@@ -1,0 +1,35 @@
+# Vladik and Courtesy (CF 811A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-27
+# Attempt : #1
+# URL     : https://codeforces.com/contest/811/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    //freopen("input.txt","r+",stdin);
+    int a,b,x=1,y=2;
+    cin>>a>>b;
+    while(1)
+    {
+        a=a-x;
+        if(a<0)
+        {
+            cout<<"Vladik"<<endl;
+            return 0;
+        }
+        x+=2;
+        b=b-y;
+        if(b<0)
+        {
+            cout<<"Valera"<<endl;
+            return 0;
+        }
+        y+=2;
+      }
+ }

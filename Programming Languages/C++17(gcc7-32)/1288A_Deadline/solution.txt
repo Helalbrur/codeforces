@@ -1,0 +1,36 @@
+# Deadline (CF 1288A)
+# Rating  : 1100
+# Tags    : binary search, brute force, math, ternary search
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-14
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1288/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,d;
+        cin>>n>>d;
+        if(d<=n){
+            cout<<"YES"<<endl;
+        }else{
+             bool ok=false;
+            for(int i=1;i<n;i++){
+                double x=ceil(double(d)/double(i+1));
+                if((int)x+i<=n){
+                    ok=true;
+                    break;
+                }
+            }
+            if(ok==true){
+                cout<<"YES"<<endl;
+            }else{
+                cout<<"NO"<<endl;
+            }
+        }
+    }
+}

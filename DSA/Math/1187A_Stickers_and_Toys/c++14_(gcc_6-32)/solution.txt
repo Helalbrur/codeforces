@@ -1,0 +1,21 @@
+# Stickers and Toys (CF 1187A)
+# Rating  : 900
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-06-30
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1187/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,s,t;
+        cin>>n>>s>>t;
+        int b=n-min(s,t);
+        cout<<b+1<<endl;
+            }
+}

@@ -1,0 +1,17 @@
+# Vasya the Hipster (CF 581A)
+# Rating  : 800
+# Tags    : implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-01
+# Attempt : #1
+# URL     : https://codeforces.com/contest/581/problem/A
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    cout<<min(a,b)<<" "<<(a+b-(2*min(a,b)))/2<<endl;
+}

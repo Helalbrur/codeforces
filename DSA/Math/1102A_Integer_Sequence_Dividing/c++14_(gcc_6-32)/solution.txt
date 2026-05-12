@@ -1,0 +1,20 @@
+# Integer Sequence Dividing (CF 1102A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1102/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int s=(n*(n+1))/2;
+    if(s%2==0){
+        cout<<0<<endl;
+    }else{
+        cout<<1<<endl;
+    }
+}

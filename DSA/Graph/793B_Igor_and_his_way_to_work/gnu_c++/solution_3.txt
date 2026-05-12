@@ -1,0 +1,78 @@
+# Igor and his way to work (CF 793B)
+# Rating  : 1600
+# Tags    : dfs and similar, graphs, implementation, shortest paths
+# Lang    : GNU C++
+# Solved  : 2017-04-24
+# Attempt : #3
+# URL     : https://codeforces.com/contest/793/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int pos;
+const int  sz= 1005;
+char g[sz][sz];
+int n,m,sx,sy;
+int fx[]={1,-1,0,0};
+int fy[]={0,0,1,-1};
+bool vis[sz][sz][4][4];
+void dfs(int x,int y,int dir, int mov)
+{
+    if(x>=n || x<0 || y>=m || y<0)
+        return ;
+    if(g[x][y]=='*' || g[x][y]=='S')
+        return;
+    if(vis[x][y][dir][mov])
+        return;
+    if(g[x][y]=='T' && mov<=2)
+    {
+        pos=1;
+        return;
+    }
+    vis[x][y][dir][mov]=1;
+    for(int i=0;i<4;i++)
+    {
+        if(g[x][y]=='T')
+        {
+           pos=1;
+           return ;
+        }
+        int nx=x+fx[i];
+        int ny=y+fy[i];
+        if(i==dir)
+        {
+            dfs(nx,ny,i,mov);
+        }
+        if(mov<2)
+        {
+            dfs(nx,ny,i,mov+1);
+        }
+    }
+}
+int main()
+{
+    //freopen("411b.txt","r",stdin);
+    cin>>n>>m;
+    pos=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            cin>>g[i][j];
+            if(g[i][j]=='S')
+                sx=i,sy=j;
+        }
+    }
+    memset(vis,0,sizeof vis);
+    for(int i=0;i<4;i++)
+    {
+        int nx=fx[i]+sx;
+        int ny=fy[i]+sy;
+        dfs(nx,ny,i,0);
+    }
+    if(pos)
+    {
+        cout<<"YES"<<endl;
+        return 0;
+    }
+    cout<<"NO"<<endl;
+}

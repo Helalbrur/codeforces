@@ -1,0 +1,21 @@
+# Buy a Shovel (CF 732A)
+# Rating  : 800
+# Tags    : brute force, constructive algorithms, implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/732/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int k,r;
+    cin>>k>>r;
+    for(int i=1;i<=10000000;i++){
+        if((k*i)%10==0 or (k*i > r && (k*i-r)%10==0) or (k*i==r)){
+            cout<<i<<endl;
+            return 0;
+        }
+    }
+}

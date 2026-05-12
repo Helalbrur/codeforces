@@ -1,0 +1,30 @@
+# Tiles (CF 1178C)
+# Rating  : 1300
+# Tags    : combinatorics, greedy, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-20
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1178/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+long long bigMod ( long long a, int p, int m )
+{
+    if ( p == 0 )return 1; 
+     if ( p & 1 ) 
+    {
+        return ( ( a % m ) * ( bigMod ( a, p - 1, m ) ) ) % m;
+    }
+    else
+    {
+        long long tmp = bigMod ( a, p / 2, m ); 
+        return ( (tmp%m) * (tmp%m )) % m;
+    }
+}
+int main()
+{
+    int w,h;
+    cin>>w>>h;
+    int m=998244353;
+    cout<<((bigMod(2,w,m)%m)*(bigMod(2,h,m)%m))%m;
+}

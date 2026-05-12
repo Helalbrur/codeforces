@@ -1,0 +1,53 @@
+# Diverse Strings (CF 1144A)
+# Rating  : 800
+# Tags    : implementation, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-04-08
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1144/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    while(n--)
+    {
+                string text;
+    int a[27];
+    memset(a,0,sizeof(a));
+    cin>>text;
+    for(int i=0;i<text.length();i++){
+        a[text[i]-'a']++;
+    }
+    int mx,mn;
+    for(int i=0;i<26;i++){
+        if(a[i]>0){
+            mn=i;
+            break;
+        }
+    }
+    for(int i=25;i>=0;i--){
+        if(a[i]>0){
+            mx=i;
+            break;
+        }
+    }
+    bool flag=0;
+    for(int i=mn;i<=mx;i++){
+        if(a[i]!=1){
+            cout<<"No"<<endl;
+            flag=1;
+            break;
+        }
+    }
+        if(flag==0){
+        cout<<"Yes"<<endl;
+    }
+    /*for(int i=0;i<25;i++){
+        cout<<a[i]<<endl;
+    }
+    */
+    }
+}

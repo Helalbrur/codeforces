@@ -1,0 +1,79 @@
+# Lucky Year (CF 808A)
+# Rating  : 900
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-15
+# Attempt : #1
+# URL     : https://codeforces.com/contest/808/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main()
+{
+    //ios_base::sync_with_stdio(0);
+    //cin.tie(NULL);
+    //freopen("input.txt","r",stdin);
+   /*
+   int n,cnt=0;
+   cin>>n;
+   bool flag=false;
+   while(flag==false)
+   {
+      cnt++;
+      flag=f(++n);
+    }
+    cout<<cnt<<endl;
+    */
+    char s[100];
+    cin>>s;
+    int l=strlen(s);
+    if(l==1)
+    {
+        cout<<1<<endl;
+    }
+    else if(l==2)
+    {
+        int a=s[1]-'0';
+       cout<<(10-a)<<endl;
+    }
+    else if(l==3)
+    {
+        int a=(s[1]-'0')*10+(s[2]-'0');
+        cout<<100-a<<endl;
+    }
+    else if(l==4)
+    {
+        int a=(s[1]-'0')*100+(s[2]-'0')*10+(s[3]-'0');
+        cout<<1000-a<<endl;
+    }
+    else if(l==5)
+    {
+        int a=(s[1]-'0')*1000+(s[2]-'0')*100+(s[3]-'0')*10+(s[4]-'0');
+        cout<<10000-a<<endl;
+    }
+    else if(l==6)
+    {
+        int a=(s[1]-'0')*10000+(s[2]-'0')*1000+(s[3]-'0')*100+(s[4]-'0')*10+(s[5]-'0');
+        cout<<100000-a<<endl;
+    }
+    else if(l==7)
+    {
+        int a=(s[1]-'0')*100000+(s[2]-'0')*10000+(s[3]-'0')*1000+(s[4]-'0')*100+(s[5]-'0')*10+(s[6]-'0');
+        cout<<1000000-a<<endl;
+    }
+    else if(l==8)
+    {
+        int a=(s[1]-'0')*1000000+(s[2]-'0')*100000+(s[3]-'0')*10000+(s[4]-'0')*1000+(s[5]-'0')*100+(s[6]-'0')*10+(s[7]-'0');
+        cout<<10000000-a<<endl;
+    }
+    else if(l==9)
+    {
+        long int a=(s[1]-'0')*10000000+(s[2]-'0')*1000000+(s[3]-'0')*100000+(s[4]-'0')*10000+(s[5]-'0')*1000+(s[6]-'0')*100+(s[7]-'0')*10+(s[8]-'0');
+        cout<<100000000-a<<endl;
+    }
+    else
+    {
+        long int a=(s[1]-'0')*100000000+(s[2]-'0')*10000000+(s[3]-'0')*1000000+(s[4]-'0')*100000+(s[5]-'0')*10000+(s[6]-'0')*1000+(s[7]-'0')*100+(s[8]-'0')*10+s[9]-'0';
+        cout<<1000000000-a<<endl;
+    }
+}

@@ -1,0 +1,27 @@
+# Equality (CF 1038A)
+# Rating  : 800
+# Tags    : implementation, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2018-09-07
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1038/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,k;
+    //freopen("input.txt","r+",stdin);
+    cin>>n>>k;
+    char text[n+4];
+    int cnt[27];
+    memset(cnt,0,sizeof(cnt));
+    cin>>text;
+    for(int i=0;i<n;i++){
+        cnt[text[i]-'A']++;
+    }
+    int cmax=n;
+    for(int i=0;i<k;i++){
+        cmax=min(cmax,cnt[i]);
+    }
+    cout<<cmax*k<<endl;
+     }

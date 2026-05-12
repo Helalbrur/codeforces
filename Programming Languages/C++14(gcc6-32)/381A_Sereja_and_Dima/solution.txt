@@ -1,0 +1,49 @@
+# Sereja and Dima (CF 381A)
+# Rating  : 800
+# Tags    : greedy, implementation, two pointers
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/381/problem/A
+
+#include<iostream>
+#include<algorithm>
+#include<string.h>
+using namespace std;
+int n;
+int a[1010];
+ int main()
+{
+    cin>>n;
+    int s=0;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        s+=a[i];
+    }
+    int i=0,j=n-1,f=0,x=0;
+    int c=0;
+    while(c<n){
+        int p=0;
+        if(a[i]>a[j]){
+            p=a[i];
+            i++;
+        }else if(a[j]>a[i]){
+            p=a[j];
+            j--;
+        }else{
+            if(j>0){
+                p=a[j];
+                j--;
+            }
+            else{
+                p=a[i];
+                i++;
+            }
+        }
+        if(c%2==0){
+            f+=p;
+        }
+        c++;
+    }
+    cout<<f<<" "<<s-f<<endl;
+ }

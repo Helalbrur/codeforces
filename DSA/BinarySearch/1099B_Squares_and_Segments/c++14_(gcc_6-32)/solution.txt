@@ -1,0 +1,33 @@
+# Squares and Segments (CF 1099B)
+# Rating  : 1100
+# Tags    : binary search, constructive algorithms, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-08
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1099/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int f(int n){
+    int s=sqrt(n);
+    if(n==2)
+        return 3;
+    if(s*s==n)
+        return s+s;
+    int mn=INT_MAX;
+        mn=2*(s+1);
+        for(int i=1;i<=s+1;i++){
+           for(int j=1;j<i;j++){
+                if(i*j>=n && (i+j)<mn){
+                    mn=i+j;
+                }
+           }
+        }
+        return mn;
+   }
+int main(){
+       int n;
+   while(cin>>n){
+     cout<<f(n)<<endl;
+   }
+        }

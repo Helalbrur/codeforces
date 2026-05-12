@@ -1,0 +1,43 @@
+# Strings Equalization (CF 1241B)
+# Rating  : 1000
+# Tags    : brute force, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-10-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1241/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int q;
+    cin>>q;
+    while(q--)
+    {
+        string s,t;
+        cin>>s;
+        cin>>t;
+        int a[27],b[27];
+        memset(a,0,sizeof(a));
+        memset(b,0,sizeof(b));
+        for(int i=0;i<s.length();i++){
+            a[s[i]-'a']++;
+            b[t[i]-'a']++;
+        }
+        bool ok=false;
+        for(int i=0;i<26;i++){
+            if(a[i]>0 && b[i]>0){
+                ok=true;
+            }
+        }
+        if(ok==true){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+# An abandoned sentiment from past (CF 814A)
+# Rating  : 900
+# Tags    : constructive algorithms, greedy, implementation, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-06-08
+# Attempt : #1
+# URL     : https://codeforces.com/contest/814/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int n,k;
+    cin>>n>>k;
+    int a[n+5];
+    int l,cnt=0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        if(a[i]==0)
+            cnt++,l=i;
+    }
+    int b[k+5];
+    for(int i=0;i<n;i++)
+    {
+                cin>>b[i];
+    }
+    if(k>1)
+    {
+        cout<<"Yes"<<endl;
+        return 0;
+    }
+    else
+        {
+        a[l]=b[0];
+        for(int i=0;i<n;i++)
+        {
+            if(i>0 && a[i]<a[i-1])
+            {
+               cout<<"Yes"<<endl;
+                return 0;
+            }
+        }
+        cout<<"No"<<endl;
+            }
+    }

@@ -1,0 +1,47 @@
+# WeirdSort (CF 1311B)
+# Rating  : 1200
+# Tags    : dfs and similar, sortings
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-02-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1311/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        int a[n+2],b[n+2];
+        memset(b,0,sizeof(b));
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+        }
+        for(int i=1;i<=m;i++){
+            int x;
+            cin>>x;
+            b[x]=1;
+        }
+        bool ok=true;
+        for(int j=1;j<=n;j++){
+            for(int i=1;i<n;i++){
+                if(a[i]>a[i+1]){
+                    if(b[i]==0){
+                        ok=false;
+                        break;
+                    }else{
+                        swap(a[i],a[i+1]);
+                    }
+                }
+            }
+        }
+        if(ok){
+            cout<<"Yes\n";
+        }else{
+            cout<<"No\n";
+        }
+    }
+}

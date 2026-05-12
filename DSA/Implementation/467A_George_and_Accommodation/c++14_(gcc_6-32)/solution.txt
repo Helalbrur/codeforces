@@ -1,0 +1,24 @@
+# George and Accommodation (CF 467A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/467/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    int cnt=0;
+    while(t--){
+        int p,q;
+        cin>>p>>q;
+        if(q-p>=2){
+            cnt++;
+        }
+    }
+    cout<<cnt<<endl;
+}

@@ -1,0 +1,31 @@
+# Deja vu of … Go Players (CF 102056D)
+# Rating  : ?
+# Tags    : 
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-08-24
+# Attempt : #1
+# URL     : https://codeforces.com/contest/102056/problem/D
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        int a;
+        for(int i=0;i<n;i++){
+            cin>>a;
+        }
+        for(int i=0;i<m;i++){
+            cin>>a;
+        }
+        if(n<=m){
+            cout<<"Yes"<<endl;
+        }else{
+            cout<<"No"<<endl;
+        }
+    }
+}

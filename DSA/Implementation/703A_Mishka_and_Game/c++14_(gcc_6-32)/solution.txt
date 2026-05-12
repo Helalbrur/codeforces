@@ -1,0 +1,31 @@
+# Mishka and Game (CF 703A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-01
+# Attempt : #1
+# URL     : https://codeforces.com/contest/703/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int m,c,m_c=0,c_c=0;
+    while(n--){
+        cin>>m>>c;
+        if(m>c){
+            m_c++;
+        }else if(c>m){
+            c_c++;
+        }
+    }
+    if(m_c>c_c){
+        cout<<"Mishka"<<endl;
+    }else if(c_c>m_c){
+        cout<<"Chris"<<endl;
+    }else{
+        cout<<"Friendship is magic!^^"<<endl;
+    }
+  }

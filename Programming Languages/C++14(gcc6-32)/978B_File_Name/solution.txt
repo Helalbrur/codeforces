@@ -1,0 +1,29 @@
+# File Name (CF 978B)
+# Rating  : 800
+# Tags    : greedy, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/978/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    string a;
+    cin>>a;
+    int cnt=0;
+    for(int i=0;i<n;i++){
+        int x=0;
+        while(a[i]=='x'){
+            x++;
+            i++;
+        }
+        if(x>=3){
+            cnt+=x-2;
+        }
+     }
+    cout<<cnt<<endl;
+}

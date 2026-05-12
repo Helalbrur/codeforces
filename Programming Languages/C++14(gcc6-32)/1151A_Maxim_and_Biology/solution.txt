@@ -1,0 +1,67 @@
+# Maxim and Biology (CF 1151A)
+# Rating  : 1000
+# Tags    : brute force, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-04-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1151/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+string sample="ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int get(char a,char b){
+    int len=sample.length();
+    int mn=INT_MAX;
+        for(int i=0;i<len;i++){
+        int temp=0;
+        if(sample[i]==a){
+            int j=i;
+            while(j>=0){
+                if(sample[j]==b){
+                    mn=min(temp,mn);
+                                   }
+                j--;
+                temp++;
+            }
+            temp=0,j=i;
+            while(j<len){
+                if(sample[j]==b){
+                    mn=min(temp,mn);
+                                   }
+                j++;
+                temp++;
+            }
+        }
+    }
+    return mn;
+}
+ int main()
+{
+    int n;
+    cin>>n;
+    string text;
+    cin>>text;
+    if(text=="ACTG"){
+        cout<<0<<endl;
+        return 0;
+    }
+    int mn=INT_MAX;
+    for(int i=0;i<n;i++){
+        int t=0;
+        if(i+4<=n){
+            int a=get(text[i],'A');
+            t+=a;
+            int b=get(text[i+1],'C');
+            t+=b;
+                        int c=get(text[i+2],'T');
+            t+=c;
+            int d=get(text[i+3],'G');
+            t+=d;
+            //cout<<a<< " "<<b<<" "<<c<<" "<<d<<endl;
+            mn=min(t,mn);
+            //cout<<mn<<endl;
+        }
+            }
+    cout<<mn<<endl;
+    return 0;
+}

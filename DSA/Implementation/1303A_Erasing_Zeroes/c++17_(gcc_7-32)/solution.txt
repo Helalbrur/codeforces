@@ -1,0 +1,46 @@
+# Erasing Zeroes (CF 1303A)
+# Rating  : 800
+# Tags    : implementation, strings
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-02-12
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1303/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        int f=0;
+        int cnt=0;
+        for(int i=0;i<s.length();i++){
+            if(s[i]=='1'){
+                if(cnt==0){
+                  f=i;
+                }
+                cnt++;
+            }
+        }
+        if(cnt<=1) cout<<0<<endl;
+        else{
+            int l=0;
+            for(int i=s.length()-1;i>=0;i--){
+                if(s[i]=='1'){
+                    l=i;
+                    break;
+                }
+            }
+            int ans=0;
+            for(int i=f;i<=l;i++){
+                if(s[i]=='0'){
+                    ans++;
+                }
+            }
+            cout<<ans<<endl;
+        }
+    }
+}

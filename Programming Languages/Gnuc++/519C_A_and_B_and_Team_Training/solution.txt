@@ -1,0 +1,30 @@
+# A and B and Team Training (CF 519C)
+# Rating  : 1300
+# Tags    : greedy, implementation, math, number theory
+# Lang    : GNU C++
+# Solved  : 2017-04-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/519/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+     int n,m;
+    //freopen("6a.txt","r+",stdin);
+    cin>>n>>m;
+    int cnt=0;
+    int mx=max(n,m);
+    int mn=min(n,m);
+    while(mx>=2 && mn>=1)
+    {
+        int a=mx;
+        int b=mn;
+        a=a-2;
+        b=b-1;
+        cnt=cnt+1;
+        //cout<<mx<<" "<<mn<<" "<<cnt<<endl;
+        mx=max(a,b);
+        mn=min(a,b);
+     }
+    cout<<cnt<<endl;
+}

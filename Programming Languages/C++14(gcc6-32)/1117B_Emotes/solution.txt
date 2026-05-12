@@ -1,0 +1,32 @@
+# Emotes (CF 1117B)
+# Rating  : 1000
+# Tags    : greedy, math, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-02-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1117/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+ long long int n,m,k;
+ cin>>n>>m>>k;
+ long long int a[n+2];
+ long long int cnt=1,f=0;
+ for(int i=0; i<n;i++){
+    cin>>a[i];
+ }
+ sort(a,a+n);
+ if(a[n-1]==a[n-2])
+    cout<<(uint64_t)m*a[n-1]<<endl;
+    else if(m>k){
+        long long int t=k+1;
+        cnt=m/t;
+        uint64_t mx=cnt*a[n-2]+(m-cnt)*a[n-1];
+        cout<<mx<<endl;
+    }else{
+         uint64_t mx=m*a[n-1];
+        cout<<mx<<endl;
+    }
+}

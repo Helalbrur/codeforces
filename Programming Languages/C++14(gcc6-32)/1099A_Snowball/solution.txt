@@ -1,0 +1,30 @@
+# Snowball (CF 1099A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-05
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1099/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main(){
+       int h,w,u1,d1,u2,d2;
+   cin>>w>>h;
+   cin>>u1>>d1;
+   cin>>u2>>d2;
+   while(h){
+                w+=h;
+        if(h==d1){
+            w=w-u1;
+        }
+        if(h==d2){
+            w=w-u2;
+        }
+        if(w<0){
+            w=0;
+        }
+        h--;
+   }
+   cout<<w<<endl;
+}

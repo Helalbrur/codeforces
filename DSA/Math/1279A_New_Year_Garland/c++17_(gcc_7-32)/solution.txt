@@ -1,0 +1,25 @@
+# New Year Garland (CF 1279A)
+# Rating  : 900
+# Tags    : math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-27
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1279/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int f[4];
+        cin>>f[0]>>f[1]>>f[2];
+        sort(f,f+3);
+        if(f[2]>f[1]+f[0]+1){
+            cout<<"No"<<endl;
+        }else{
+            cout<<"Yes"<<endl;
+        }
+    }
+}

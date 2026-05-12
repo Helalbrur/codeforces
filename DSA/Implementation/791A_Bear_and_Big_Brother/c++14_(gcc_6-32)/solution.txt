@@ -1,0 +1,24 @@
+# Bear and Big Brother (CF 791A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-03-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/791/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    int cnt=0;
+    while(a<=b)
+    {
+        a*=3;
+        b*=2;
+        cnt++;
+        //cout<<a<<" "<<b<<" "<<cnt<<endl;
+    }
+    cout<<cnt<<endl;
+}

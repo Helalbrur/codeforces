@@ -1,0 +1,45 @@
+# Just Eat It! (CF 1285B)
+# Rating  : 1300
+# Tags    : dp, greedy, implementation
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-11
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1285/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int a[n+2];
+        bool b=false;
+        long long int s=0,x=0,mx=0;
+         for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        for(int i=0;i<n;i++){
+            s+=a[i];
+            if(s<=0){
+                  cout<<"NO"<<endl;
+                 b=true;
+                 break;
+            }
+          }
+        s=0;
+         for(int i=n-1;i>=0;i--){
+            s+=a[i];
+            if(s<=0 && b==false){
+                  cout<<"NO"<<endl;
+                 b=true;
+                 break;
+            }
+          }
+        if(b==false)
+            cout<<"YES"<<endl;
+     }
+}

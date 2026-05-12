@@ -1,0 +1,33 @@
+# Ropewalkers (CF 1185A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-06-19
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1185/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a[4],d;
+    for(int i=0;i<3;i++){
+        cin>>a[i];
+    }
+    cin>>d;
+    sort(a,a+3);
+    if(abs(a[0]-a[1])>=d && abs(a[1]-a[2])>=d){
+        cout<<0<<endl;
+        return 0;
+    }else{
+        int cnt=0;
+        if(abs(a[0]-a[1])<d){
+            cnt+=d-(a[1]-a[0]);
+        }
+        if(abs(a[2]-a[1])<d){
+            cnt+=d-(a[2]-a[1]);
+        }
+        cout<<cnt<<endl;
+        return 0;
+    }
+    }

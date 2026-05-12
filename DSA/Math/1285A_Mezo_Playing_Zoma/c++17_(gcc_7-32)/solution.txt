@@ -1,0 +1,18 @@
+# Mezo Playing Zoma (CF 1285A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1285/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    string a;
+    cin>>a;
+    cout<<n+1<<endl;
+}

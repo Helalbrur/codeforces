@@ -1,0 +1,33 @@
+# Interesting Subarray (CF 1270B)
+# Rating  : 1200
+# Tags    : constructive algorithms, greedy, math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1270/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n+3];
+        a[0]=0;
+        bool ok=false;
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+            if(i>1 && abs(a[i]-a[i-1])>1 && ok==false){
+                cout<<"YES"<<endl;
+                cout<<i-1<<" "<<i<<endl;
+                ok=true;
+            }
+        }
+         if(ok==false){
+            cout<<"NO"<<endl;
+        }
+    }
+}

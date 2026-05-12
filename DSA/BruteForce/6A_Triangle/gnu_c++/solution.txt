@@ -1,0 +1,39 @@
+# Triangle (CF 6A)
+# Rating  : 900
+# Tags    : brute force, geometry
+# Lang    : GNU C++
+# Solved  : 2017-04-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/6/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int triangle(int a,int b,int c)
+{
+    if(((a+b)>c) && ((a+c)>b) && ((b+c)>a))
+        return 1;
+    return 0;
+}
+int degenarateTriangle(int a,int b,int c)
+{
+    if(((a+b)>=c) && ((a+c)>=b) && ((b+c)>=a))
+        return 1;
+    return 0;
+}
+int main()
+{
+    //freopen("6a.txt","r+",stdin);
+    int a,b,c,d;
+    cin>>a>>b>>c>>d;
+         if(triangle(a,b,c)||triangle(a,b,d)||triangle(b,c,d)||triangle(a,d,c))
+        {
+            cout<<"TRIANGLE"<<endl;
+            return 0;
+        }
+          if(degenarateTriangle(a,b,c)||degenarateTriangle(a,b,d)||degenarateTriangle(b,c,d)||degenarateTriangle(a,d,c))
+        {
+            cout<<"SEGMENT"<<endl;
+            return 0;
+        }
+     cout<<"IMPOSSIBLE"<<endl;
+}

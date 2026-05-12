@@ -1,0 +1,33 @@
+# Nauuo and Votes (CF 1173A)
+# Rating  : 800
+# Tags    : greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-21
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1173/problem/A
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int u,d,z;
+    cin>>u>>d>>z;
+    if(z==0){
+        if(u>d){
+            cout<<"+"<<endl;
+        }else if(d>u){
+            cout<<"-"<<endl;
+        }else{
+            cout<<0<<endl;
+        }
+    }else{
+        if(u>d+z){
+            cout<<"+"<<endl;
+        }else if(d>u+z){
+            cout<<"-"<<endl;
+        }else{
+            cout<<"?"<<endl;
+        }
+    }
+}

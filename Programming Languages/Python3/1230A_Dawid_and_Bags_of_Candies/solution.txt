@@ -1,0 +1,13 @@
+# Dawid and Bags of Candies (CF 1230A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : Python 3
+# Solved  : 2019-09-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1230/problem/A
+
+a,b,c,d=map(int,input().split())
+if(a+b==c+d or a+c==b+d or a+d==b+c or a==b+c+d or b==a+c+d or c==a+b+d or d==a+b+c):
+    print("YES")
+else:
+    print("NO")

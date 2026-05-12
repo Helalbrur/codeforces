@@ -1,0 +1,49 @@
+# Three Integers (CF 1311D)
+# Rating  : 2000
+# Tags    : brute force, math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-02-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1311/problem/D
+
+#include<bits/stdc++.h>
+using namespace std;
+int cnt=0;
+int f(int a,int b,int c){
+    cout<<cnt++<<endl;
+    if(a<=0 || b<=0 || c<=0 || a>=30 || c>=30 || b>=30 ) return INT_MAX;
+    if(c%b==0 && b%a==0) return 0;
+        int x=INT_MAX;
+    x=min(x,f(a+1,b,c)+1);
+    x=min(x,f(a-1,b,c)+1);
+    x=min(x,f(a,b+1,c)+1);
+    x=min(x,f(a,b-1,c)+1);
+    x=min(x,f(a,b,c+1)+1);
+    x=min(x,f(a,b,c-1)+1);
+        return x;
+}
+int main()
+{
+    int t;
+    cin>>t;
+   // memset(dp,-1,sizeof(dp));
+    while(t--){
+       int a,b,c;
+       cin>>a>>b>>c;
+       long long int aa,bb,cc,ans=INT_MAX;
+       for(int i=1;i<=c;i++){
+           for(int j=i;j<=c+c;j+=i){
+               for(int k=j;k<=c+c+c;k+=j){
+                   long long cur=abs(i-a)+abs(j-b)+abs(k-c);
+                   if(ans>cur){
+                       ans=cur;
+                       aa=i;
+                       bb=j;
+                       cc=k;
+                   }
+                                  }
+           }
+       }
+       cout<<ans<<"\n"<<aa<<" "<<bb<<" "<<cc<<"\n";
+    }
+}

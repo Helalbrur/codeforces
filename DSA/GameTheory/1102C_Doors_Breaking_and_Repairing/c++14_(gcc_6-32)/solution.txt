@@ -1,0 +1,31 @@
+# Doors Breaking and Repairing (CF 1102C)
+# Rating  : 1200
+# Tags    : games
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1102/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,x,y;
+    cin>>n>>x>>y;
+    int a[n+5];
+    int x_c=0;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        if(a[i]<=x){
+            x_c++;
+        }
+    }
+    if(x>y){
+        cout<<n<<endl;
+            }
+    else if(x_c%2==0){
+        cout<<x_c/2<<endl;
+            }
+    else{
+        cout<<(x_c/2)+1<<endl;
+            }
+}

@@ -1,0 +1,23 @@
+# Even Substrings (CF 1139A)
+# Rating  : 800
+# Tags    : implementation, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-03-21
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1139/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    string text;
+    cin>>text;
+    int cnt=0;
+    for(int i=0;i<n;i++){
+        if((text[i]-'0')%2==0){
+            cnt+=i+1;
+        }
+    }
+    cout<<cnt<<endl;
+}

@@ -1,0 +1,49 @@
+# The Child and Homework (CF 437A)
+# Rating  : 1300
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-30
+# Attempt : #1
+# URL     : https://codeforces.com/contest/437/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main()
+{
+    //freopen("input.txt","r",stdin);
+    int len[10];
+    string a;
+    for(int i=0;i<4;i++)
+    {
+        cin>>a;
+        len[i]=a.length()-2;
+    }
+    int cnt=0,pos=-1;
+    for(int i=0;i<4;i++)
+    {
+       bool x=1,y=1;
+       for(int j=0;j<4;j++)
+        {
+            if(i!=j)
+            {
+                if(len[i]*2>len[j])x=0;
+                if(len[j]*2>len[i])y=0;
+               // cout<<x<<" "<<y<<endl;
+            }
+        }
+        if(x^y)
+        {
+            cnt++;
+            pos=i;
+        }
+    }
+   // cout<<cnt<<endl;
+    if(cnt==1)
+    {
+        printf("%c\n",pos+'A');
+    }
+    else
+    {
+        cout<<"C"<<endl;
+    }
+}

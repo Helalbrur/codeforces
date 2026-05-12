@@ -1,0 +1,58 @@
+# Yet Another Crosses Problem (CF 1194B)
+# Rating  : 1300
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-14
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1194/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main()
+{
+     int t;
+    cin>>t;
+    while(t--){
+       int n,m;
+        cin>>n>>m;
+        char a[n+3][m+3];
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                cin>>a[i][j];
+            }
+        }
+        int row[n+2],col[m+2];
+        memset(row,0,sizeof(row));
+        memset(col,0,sizeof(col));
+        int x[n+2][m+2];
+                for(int i=1;i<=n;i++){
+            int sum=0;
+            for(int j=1;j<=m;j++){
+                                if(a[i][j]=='.'){
+                    sum+=1;
+                }
+            }
+            row[i]=sum;
+        }
+         for(int i=1;i<=m;i++){
+            int sum=0;
+            for(int j=1;j<=n;j++){
+                                if(a[j][i]=='.'){
+                    sum+=1;
+                }
+            }
+            col[i]=sum;
+        }
+        int mn=INT_MAX;
+        for(int i=1;i<=n;i++){
+            for(int j=1;j<=m;j++){
+                if(a[i][j]=='.'){
+                     mn=min(mn,row[i]+col[j]-1);
+                }else{
+                     mn=min(mn,row[i]+col[j]);
+                }
+                           }
+        } 
+                         cout<<mn<<endl;
+    }
+}

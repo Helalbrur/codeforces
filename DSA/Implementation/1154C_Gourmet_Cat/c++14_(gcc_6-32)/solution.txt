@@ -1,0 +1,53 @@
+# Gourmet Cat (CF 1154C)
+# Rating  : 1400
+# Tags    : implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-04-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1154/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int p[]={0,2,1,1,2,3,1,3,2,1,1,2,3,1,3,2,1,1,2,3,1,3,2,1,1,2,3,1,3,2,1,1,2,3,1,3};
+  int cal(int start,int a,int b,int c){
+    int d=0;
+    for(int i=start;i<=35;i++){
+        if(p[i]==1 && a>0){
+            d++;
+            a--;
+        }else if(p[i]==2 && b>0 ){
+            d++;
+            b--;
+        }else if(p[i]==3 && c>0){
+            d++;
+            c--;
+        }
+        else{
+            return d;
+        }
+    }
+    return d;
+}
+int main()
+{
+    int a,b,c;
+    cin>>a>>b>>c;
+    int mn=min(min(a,b),c);
+    long int cnt=0;
+    int p=0;
+    int h=a,i=b,j=c;
+       while(min(min(a,b),c)>=3){
+        mn=min(min(a,b),c);
+        p=mn/3;
+        cnt+=p*7;
+        a=a-p*3;
+        b=b-p*2;
+        c=c-p*2;
+    }
+          int x=0;
+    for(int i=1;i<=7;i++){
+        int t=cal(i,a,b,c);
+        x=max(t,x);
+    }
+    cout<<cnt+x<<endl;
+        }

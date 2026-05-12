@@ -1,0 +1,55 @@
+# Character Swap (Easy Version) (CF 1243B1)
+# Rating  : 1000
+# Tags    : strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1243/problem/B1
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+   ios_base::sync_with_stdio(0);
+   cin.tie(0);
+   cout.tie(0);
+   int k;
+   cin>>k;
+   while(k--){
+    int n;
+    cin>>n;
+    string s,t;
+    cin>>s;
+    cin>>t;
+    if(s!=t){
+         int cnt=0;
+        bool ok=false;
+        vector<int> pos;
+        for(int i=0;i<n;i++){
+            if(s[i]!=t[i]){
+                if(pos.size()>=3){
+                    break;
+                }
+                pos.push_back(i);
+             }
+        }
+         if(pos.size()==2){
+           char a=s[pos[0]];
+           char b=s[pos[1]];
+           char c=t[pos[0]];
+           char d=t[pos[1]];
+           if(a==b && c==d){
+                cout<<"Yes"<<endl;
+            }else{
+                cout<<"No"<<endl;
+            }
+        }else if(pos.size()==0){
+            cout<<"Yes"<<endl;
+        }else{
+            cout<<"No"<<endl;
+        }
+     }else{
+        cout<<"Yes"<<endl;
+    }
+    }
+}

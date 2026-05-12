@@ -1,0 +1,39 @@
+# Remove One Element (CF 1272D)
+# Rating  : 1500
+# Tags    : brute force, dp
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1272/problem/D
+
+#include<bits/stdc++.h>
+using namespace std;
+int n;
+int a[200010];
+int dp[2*100010][4];
+int f(int i,int c){
+    if(i>n) return 0;
+    int &x = dp[i][c];
+    if(x!=-1) return x;
+    x = 1;
+    if(a[i+1]>a[i]) x+=f(i+1,c);
+    if(c==0 && a[i+2]>a[i])
+        x = max(x, 1+f(i+2,1));
+    return x;
+}
+int main()
+{
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        cin>>a[i];
+    }
+    for(int i=0;i<2*100009;i++){
+        for(int j=0;j<3;j++){
+            dp[i][j]=-1;
+        }
+    }
+    int mx = 1;
+    for(int i=1;i<=n;i++)
+        mx = max(mx, f(i,0));
+    cout<<mx<<endl;
+}

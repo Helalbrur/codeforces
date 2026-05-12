@@ -1,0 +1,19 @@
+# Definite Game (CF 1081A)
+# Rating  : 800
+# Tags    : constructive algorithms, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2018-12-16
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1081/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+        int n;
+    cin>>n;
+    if(n==2){
+        cout<<2<<endl;
+    }else{
+        cout<<1<<endl;
+    }
+    }

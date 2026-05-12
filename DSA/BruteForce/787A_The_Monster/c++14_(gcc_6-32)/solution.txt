@@ -1,0 +1,36 @@
+# The Monster (CF 787A)
+# Rating  : 1200
+# Tags    : brute force, math, number theory
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-03-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/787/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long int a,b,c,d;
+    cin>>a>>b;
+    cin>>c>>d;
+    map<long int,long int> mp;
+        mp[b]++;
+        mp[d]++;
+    for(long int i=1;i<=10000;i++)
+    {
+        long int f=a*i;
+        long int s=c*i;
+        mp[f+b]++;
+        mp[s+d]++;
+    }
+    for(auto it=mp.begin();it!=mp.end();++it)
+    {
+        if(it->second>1)
+        {
+            cout<<it->first<<endl;
+            return 0;
+        }
+        //cout<<it->first<<" "<<it->second<<endl;
+    }
+    cout<<"-1"<<endl;
+}

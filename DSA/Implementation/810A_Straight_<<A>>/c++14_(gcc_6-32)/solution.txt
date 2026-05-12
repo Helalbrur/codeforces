@@ -1,0 +1,41 @@
+# Straight <<A>> (CF 810A)
+# Rating  : 900
+# Tags    : implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-21
+# Attempt : #1
+# URL     : https://codeforces.com/contest/810/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    int a;
+    double s=0.0,x=0.0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a;
+        s+=a;
+    }
+    a=floor(s/n+.5);
+    if(a==k)
+    {
+        cout<<0<<endl;
+        return 0;
+    }
+    bool flag=false;
+    int cnt=0;
+    while(flag==false)
+    {
+        s+=k;
+        cnt+=1;
+        a=floor((s/(n+cnt))+.5);
+        if(a==k)
+        {
+            break;
+        }
+    }
+    cout<<cnt<<endl;
+}

@@ -1,0 +1,19 @@
+# Nastya Is Playing Computer Games (CF 1136B)
+# Rating  : 1000
+# Tags    : constructive algorithms, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-03-11
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1136/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+        int n,k;
+    cin>>n>>k;
+    if(k==1||k==n){
+        cout<<n*3<<endl;
+    }else{
+        cout<<n*3+min(k-1,n-k)<<endl;
+    }
+}

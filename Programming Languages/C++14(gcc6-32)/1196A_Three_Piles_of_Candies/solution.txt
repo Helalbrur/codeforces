@@ -1,0 +1,27 @@
+# Three Piles of Candies (CF 1196A)
+# Rating  : 800
+# Tags    : brute force, constructive algorithms, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-24
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1196/problem/A
+
+#include<iostream>
+#include<math.h>
+#include<string>
+#include<vector>
+#include<map>
+#include<set>
+#include<stack>
+#include<queue>
+using namespace std;
+int main()
+{
+   int q;
+   cin>>q;
+   while(q--){
+        int64_t a,b,c;
+        cin>>a>>b>>c;
+        cout<<(a+b+c)/2<<endl;
+           }
+    }

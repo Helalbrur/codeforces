@@ -1,0 +1,83 @@
+# Beautiful String (CF 1265A)
+# Rating  : 1000
+# Tags    : constructive algorithms, greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-12-05
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1265/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    while(n--){
+        string a;
+        cin>>a;
+        bool flag=true;
+        for(int i=0;i<a.length();i++){
+            if(i>0){
+                if(a[i]==a[i-1] && a[i]!='?'){
+                    flag=false;
+                    break;
+                }
+            }
+        }
+        if(flag==false){
+            cout<<"-1"<<endl;
+        }else{
+            for(int i=0;i<a.length();i++){
+                if(a[i]=='?'){
+                    if(i>0 && i+1<a.length()){
+                        char c=a[i-1];
+                        char d=a[i+1];
+                        if(c=='a'){
+                            if(d=='b'){
+                                a[i]='c';
+                            }else{
+                                a[i]='b';
+                            }
+                        }else if(c=='b'){
+                            if(d=='a'){
+                                a[i]='c';
+                            }else{
+                                a[i]='a';
+                            }
+                         }else if(c=='c'){
+                            if(d=='b'){
+                                a[i]='a';
+                            }else{
+                                a[i]='b';
+                            }
+                        }
+                    }else if(i>0){
+                        char c=a[i-1];
+                        if(c=='a'){
+                            a[i]='b';
+                        }else if(c=='b'){
+                            a[i]='a';
+                         }else if(c=='c'){
+                            a[i]='a';
+                        }
+                     }else if(i+1<a.length()){
+                        char c=a[i+1];
+                        if(c=='a'){
+                            a[i]='b';
+                        }else if(c=='b'){
+                            a[i]='a';
+                         }else if(c=='c'){
+                            a[i]='a';
+                        }else if(c=='?'){
+                            a[i]='a';
+                        }
+                    }else{
+                        a[i]='a';
+                       // cout<<a[i]<<endl;
+                    }
+                }
+            }
+            cout<<a<<endl;
+        }
+      }
+}

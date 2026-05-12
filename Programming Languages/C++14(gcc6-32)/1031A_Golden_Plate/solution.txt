@@ -1,0 +1,24 @@
+# Golden Plate (CF 1031A)
+# Rating  : 800
+# Tags    : implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1031/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int w,h,k;
+    cin>>w>>h>>k;
+    int total=0;
+    int i=1;
+    int it=k;
+    while(k--){
+        total+=(w*h)-(w-2)*(h-2);
+        w-=4;
+        h-=4;
+     }
+    cout<<total<<endl;
+}

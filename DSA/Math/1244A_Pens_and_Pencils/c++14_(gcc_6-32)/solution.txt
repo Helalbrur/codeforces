@@ -1,0 +1,43 @@
+# Pens and Pencils (CF 1244A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-10-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1244/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int a,b,c,d,k;
+        cin>>a>>b>>c>>d>>k;
+        int pen=0,pencil=0;
+        if(c>=a){
+            pen=1;
+        }else{
+             if(a%c==0){
+                pen=a/c;
+            }else{
+                pen=(a/c)+1;
+            }
+        }
+         if(d>=b){
+            pencil=1;
+        }else{
+             if(b%d==0){
+                pencil=b/d;
+            }else{
+                pencil=(b/d)+1;
+            }
+        }
+        if(pen+pencil<=k){
+            cout<<pen<<" "<<pencil<<endl;
+        }else{
+            cout<<"-1"<<endl;
+        }
+     }
+}

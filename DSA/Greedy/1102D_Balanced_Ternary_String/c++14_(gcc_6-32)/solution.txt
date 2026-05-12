@@ -1,0 +1,70 @@
+# Balanced Ternary String (CF 1102D)
+# Rating  : 1500
+# Tags    : greedy, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1102/problem/D
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    char a[n+5];
+    cin>>a;
+    int zero=0,one=0,two=0;
+    for(int i=0;i<n;i++){
+        if(a[i]=='0'){
+            zero++;
+        }else if(a[i]=='1'){
+            one++;
+        }else if(a[i]=='2'){
+            two++;
+        }
+    }
+    int c=n/3;
+    for(int i=n-1;i>=0;i--){
+         if(a[i]=='0' && zero>c){
+            zero--;
+            if(two<c){
+                a[i]='2';
+                two++;
+            }else{
+                                a[i]='1';
+                one++;
+            }
+        }
+    }
+       for(int i=n-1;i>=0;i--){
+        if(a[i]=='1' && one>c){
+                                    if(two<c){
+                one--;
+                a[i]='2';
+                two++;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        if(a[i]=='1' && one>c){
+                                   if(zero<c){
+                 one--;
+                 a[i]='0';
+                zero++;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        if(a[i]=='2' && two>c){
+            two--;
+            if(zero<c){
+                a[i]='0';
+                zero++;
+            }else{
+                a[i]='1';
+                one++;
+            }
+        } 
+    }
+    cout<<a<<endl;
+}

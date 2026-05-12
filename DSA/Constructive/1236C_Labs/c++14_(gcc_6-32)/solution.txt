@@ -1,0 +1,39 @@
+# Labs (CF 1236C)
+# Rating  : 1300
+# Tags    : constructive algorithms, greedy, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-10-17
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1236/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    vector<int> v[n +2];
+    int p=n*n;
+    int cnt=0;
+    int i=0,j=0;
+    while(i<p){
+        j=min(i+n,p);
+        while(i<j){
+            v[i%n].push_back(i+1);
+            i++;
+        }
+        j=min(i+n-1,p-1);
+        int k=i;
+        while(j>=k){
+            v[j%n].push_back(i+1);
+            j--;
+            i++;
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<v[i].size();j++){
+            cout<<v[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+  }

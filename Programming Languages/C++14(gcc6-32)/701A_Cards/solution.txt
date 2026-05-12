@@ -1,0 +1,41 @@
+# Cards (CF 701A)
+# Rating  : 800
+# Tags    : greedy, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/701/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+2];
+    int s=0;
+    bool vis[n+2];
+    for(int i=1;i<=n;i++){
+        cin>>a[i];
+        s+=a[i];
+        vis[i]=false;
+    }
+    int avs=(s*2)/n;
+    int i=0;
+    int j=1;
+    while(i<=n/2 && j<=n){
+        if(vis[j]==false){
+            cout<<j<<" ";
+            vis[j]=true;
+            for(int k=1;k<=n;k++){
+                if(vis[k]==false && a[j]+a[k]==avs){
+                    cout<<k<<endl;
+                    vis[k]=true;
+                    break;
+                }
+            }
+            i++;
+        }
+        j++;
+    }
+  }

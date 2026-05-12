@@ -1,0 +1,39 @@
+# Letters Shop (CF 1187B)
+# Rating  : 1300
+# Tags    : binary search, implementation, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-06-30
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1187/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int b[27][200010];
+int main()
+{
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    int m;
+    cin>>m;
+        int a[27];
+    memset(a,0,sizeof(a));
+    memset(b,0,sizeof(b));
+    for(int i=0;i<n;i++){
+        a[s[i]-'a']++;
+        b[s[i]-'a'][a[s[i]-'a']]=i;
+    }
+        while(m--){
+        string text;
+        cin>>text;
+        int x[27];
+        memset(x,0,sizeof(x));
+        int cnt=0;
+        for(int i=0;i<text.length();i++){
+            x[text[i]-'a']++;
+            cnt=max(cnt,b[text[i]-'a'][x[text[i]-'a']]);
+        }
+        cout<<cnt+1<<endl;
+    }
+}

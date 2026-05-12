@@ -1,0 +1,44 @@
+# Accordion (CF 1101B)
+# Rating  : 1300
+# Tags    : greedy, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1101/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main(){
+    char text[500010];
+    cin>>text;
+    int mx=0;
+    int f=0,len=strlen(text);
+       int x=0,y=len-1,p=0,q=0;
+    while(text[x]!='[' && x<len){
+        x++;
+            }
+    while(text[y]!=']' && y>=0){
+        y--;
+            }
+    if(text[x]!='[' || text[y]!=']' || x>y){
+        cout<<"-1"<<endl;
+        return 0;
+    }
+    p=x;q=y;
+    while(text[x]!=':' && x<q){
+        x++;
+           }
+    while(text[y]!=':' && y>=p){
+        y--;
+            }
+        if(text[x]!=':' || text[y]!=':' ||x==y){
+        cout<<"-1"<<endl;
+        return 0;
+    }
+   for(int i=x;i<y;i++){
+        if(text[i]=='|'){
+            f++;
+        }
+   }
+    cout<<4+f<<endl;
+}

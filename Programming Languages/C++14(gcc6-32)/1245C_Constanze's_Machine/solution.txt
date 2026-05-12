@@ -1,0 +1,47 @@
+# Constanze's Machine (CF 1245C)
+# Rating  : 1400
+# Tags    : dp
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-02
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1245/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+#define mod 1000000007
+string a;
+int dp[100010];
+int f(int i){
+    if(i==a.length())
+        return 1;
+     if(dp[i]!=-1)
+        return dp[i];
+    if(a[i]=='w')
+        return 0;
+    if(a[i]=='m')
+        return 0;
+    int cnt=0;
+    if(a[i]=='u' && i<a.length()-1 && a[i+1]=='u'){
+        int x=f(i+1);
+        cnt+=x%mod;
+        x=f(i+2);
+        cnt+=x%mod;
+        cnt=cnt%mod;
+      }
+   else if(a[i]=='n' && i<a.length()-1 && a[i+1]=='n'){
+        int x=f(i+1);
+        cnt+=x%mod;
+        x=f(i+2);
+        cnt+=x%mod;
+        cnt=cnt%mod;
+     }
+   else cnt+=f(i+1)%mod;
+   dp[i]=cnt%mod;
+   return dp[i];
+  }
+int main()
+{
+    cin>>a;
+    memset(dp,-1,sizeof(dp));
+    cout<<f(0)<<endl;
+}

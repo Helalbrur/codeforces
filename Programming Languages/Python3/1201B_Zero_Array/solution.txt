@@ -1,0 +1,17 @@
+# Zero Array (CF 1201B)
+# Rating  : 1500
+# Tags    : greedy, math
+# Lang    : Python 3
+# Solved  : 2019-08-21
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1201/problem/B
+
+n=int(input())
+a=list(map(int,input().split()))
+b=sum(a)
+c=max(a)
+#print(b,c)
+if b%2==0 and (b-c)>=c:
+    print("YES")
+else:
+    print("NO")

@@ -1,0 +1,37 @@
+# Competitive Programmer (CF 1266A)
+# Rating  : 1000
+# Tags    : chinese remainder theorem, math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-17
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1266/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    while(n--){
+        string a;
+        cin>>a;
+        int sum=0;
+        int z=0,even=false;
+         for(int i=0;i<a.length();i++){
+            sum+=a[i]-'0';
+            if(a[i]=='0'){
+                if(z>0){
+                    even=true;
+                }
+                z++;
+            }else if((a[i]-'0')%2==0){
+                even=true;
+            }
+        }
+        if(sum%3==0 && z>0 && even==true ){
+            cout<<"red"<<endl;
+         }else {
+            cout<<"cyan"<<endl;
+        }
+    }
+}

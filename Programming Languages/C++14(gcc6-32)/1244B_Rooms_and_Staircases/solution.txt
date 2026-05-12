@@ -1,0 +1,33 @@
+# Rooms and Staircases (CF 1244B)
+# Rating  : 1000
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-10-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1244/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string a;
+        cin>>a;
+        int i=0,f=0;
+         while(i<n && a[i]!='1'){
+             f++;
+            i++;
+        }
+        int b=0;
+        i=n-1;
+        while(i>=0 && a[i]!='1'){
+            b++;
+            i--;
+        }
+       cout<<max(n,2*n-min(b,f)*2)<<endl;
+     }
+}

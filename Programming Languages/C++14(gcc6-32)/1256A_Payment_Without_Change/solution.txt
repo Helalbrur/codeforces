@@ -1,0 +1,37 @@
+# Payment Without Change (CF 1256A)
+# Rating  : 1000
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-04
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1256/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int q;
+    cin>>q;
+    while(q--){
+        int a,b,n,s;
+        cin>>a>>b>>n>>s;
+         int div=s/n;
+        int sub=s-b;
+         if(div<=a ){
+            if(div*n>=sub){
+                cout<<"YES"<<endl;
+            }
+            else{
+                cout<<"NO"<<endl;
+            }
+            //cout<<div<<" First Case "<<sub<<endl;
+        }else{
+             if( sub<=a*n){
+                cout<<"YES"<<endl;
+            }else{
+                cout<<"NO"<<endl;
+            }
+            //cout<<div<<" Second Case"<<endl;
+        }
+     }
+}

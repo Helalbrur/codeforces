@@ -1,0 +1,35 @@
+# Line to Cashier (CF 408A)
+# Rating  : 900
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-30
+# Attempt : #1
+# URL     : https://codeforces.com/contest/408/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+#define inf 1000000000
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    int n;
+    cin>>n;
+    int a[n+5];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    int b;
+    int mn=inf;
+    for(int i=0;i<n;i++)
+    {
+         int cnt=0;
+        for(int j=0;j<a[i];j++)
+        {
+            cin>>b;
+            cnt+=(b*5)+15;
+        }
+        mn=min(cnt,mn);
+    }
+    cout<<mn<<endl;
+}

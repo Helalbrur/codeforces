@@ -1,0 +1,50 @@
+# Increasing Subsequence (easy version) (CF 1157C1)
+# Rating  : 1300
+# Tags    : greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-04-27
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1157/problem/C1
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+2];
+    deque<int> d;
+    for(int i=1;i<=n;i++){
+        cin>>a[i];
+        d.push_back(a[i]);
+    }
+        string s;
+    int last=INT_MIN;
+    while(!d.empty()){
+        int f=d.front();
+        int b=d.back();
+        if(b>last && f>last){
+            if(b<f){
+                s.push_back('R');
+                d.pop_back(); 
+                last=b;
+            }else{
+                s.push_back('L');
+                d.pop_front();
+                last=f;
+            }
+                   }else if(b>last){
+                        s.push_back('R');
+             d.pop_back(); 
+             last=b;
+        }else if(f>last){
+             s.push_back('L');
+            d.pop_front();
+            last=f;
+        }else{
+            break;
+        }
+    }
+    cout<<s.size()<<endl;
+    cout<<s<<endl;
+}

@@ -1,0 +1,28 @@
+# Vasya and Digital Root (CF 355A)
+# Rating  : 1100
+# Tags    : constructive algorithms, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/355/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    if(k==0 && n>1)
+    {
+        cout<<"No solution"<<endl;
+        return 0;
+    }
+    for(int i=1;i<=n;i++)
+    {
+        if(i==1)
+            cout<<k;
+        else
+            cout<<0;
+    }
+    cout<<endl;
+}

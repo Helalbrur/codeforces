@@ -1,0 +1,45 @@
+# Perform the Combo (CF 1311C)
+# Rating  : 1300
+# Tags    : brute force
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-02-24
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1311/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,m;
+        cin>>n>>m;
+        string s;
+        cin>>s;
+        int a[m+2];
+        for(int i=0;i<m;i++){
+            cin>>a[i];
+        }
+       long long int p[n+5][28];
+        memset(p,0,sizeof(p));
+      long long int f[28];
+        memset(f,0,sizeof(f));
+        for(int i=0;i<n;i++){
+            p[i+1][s[i]-'a']++;
+            f[s[i]-'a']++;
+            for(int j=0;j<26;j++){
+                p[i+1][j]+=p[i][j];
+            }
+         }
+         for(int i=0;i<m;i++){
+            for(int j=0;j<26;j++){
+                f[j]+=p[a[i]][j];
+            }
+        }
+         for(int i=0;i<26;i++){
+            cout<<f[i]<<" ";
+        }
+        cout<<endl;
+    }
+}

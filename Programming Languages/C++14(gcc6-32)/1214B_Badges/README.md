@@ -1,0 +1,14 @@
+# Badges
+
+| Field | Value |
+|-------|-------|
+| Language | C++14(gcc6-32) |
+| Tags | `brute force`, `math` |
+| Solved | 2019-09-04 |
+| Link | [CF](https://codeforces.com/contest/1214/problem/B) |
+
+## Attempts
+
+| File |
+|------|
+| [solution.txt](./solution.txt) |

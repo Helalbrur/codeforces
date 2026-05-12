@@ -1,0 +1,25 @@
+# Minutes Before the New Year (CF 1283A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-28
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1283/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int h,m;
+        cin>>h>>m;
+        int t=1440;
+        int x=h*60+m;
+        if(h==0 && m==0){
+            cout<<0<<endl;
+        }else
+            cout<<t-x<<endl;
+     }
+}

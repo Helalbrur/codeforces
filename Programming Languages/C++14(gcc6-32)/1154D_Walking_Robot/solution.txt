@@ -1,0 +1,54 @@
+# Walking Robot (CF 1154D)
+# Rating  : 1500
+# Tags    : greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-04-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1154/problem/D
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,a,b;
+    cin>>n>>b>>a;
+    int s[n+3];
+    int x=a,y=b;
+    int cnt=0,flag=1;
+    for(int i=0;i<n;i++){
+        cin>>s[i];
+        if(flag==1){
+            if(s[i]==1 ){
+               if(y>0 && x<a){
+                    cnt++;
+                                            x++;
+                                        y--;
+                                  }else if(x>0){
+                   cnt++;
+                   x--;
+               }else if(y>0){
+                   cnt++;
+                   y--;
+               }
+               else{
+                   flag=0;
+               }
+            }
+            else if(x>0){
+                cnt++;
+                x--;
+                            }
+            else if(y>0){
+                y--;
+                cnt++;
+            }
+            else{
+                flag=0;
+            }
+            if(x<=0 && y<=0){
+                flag=0;
+            }
+                    }
+            }
+    cout<<cnt<<endl;
+}

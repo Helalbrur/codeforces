@@ -1,0 +1,26 @@
+# Grade Allocation (CF 1316A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-03-04
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1316/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        long long int n,m;
+        cin>>n>>m;
+        int a[n+2];
+        long long int s=0;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            s+=a[i];
+        }
+        cout<<min(s,m)<<endl;
+    }
+}

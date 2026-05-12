@@ -1,0 +1,40 @@
+# Chunga-Changa (CF 1181A)
+# Rating  : 1000
+# Tags    : greedy, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-06-16
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1181/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int64_t x,y,z,shasha,masha,giv=0;
+    cin>>x>>y>>z;
+    if(min(x,y)>=z){
+         int64_t a=x/z,b=y/z,c=(x+y)/z;
+         if((a+b)<c){
+            giv=z-max(x%z,y%z);
+         }else{
+             giv=0;
+         }
+         cout<<c<<" "<<giv<<endl;
+        return 0;
+    }else if((x+y)>=z){
+        int64_t c=(x+y)/z;
+                int64_t a=x/z;
+        int64_t b=y/z;
+        if(c>(a+b)){
+             giv=z-max(x%z,y%z);
+        }else{
+            giv=0;
+        }
+        cout<<c<<" "<<giv<<endl;
+        return 0;
+    }
+   else{
+               cout<<0<<" "<<0<<endl;
+       return 0;
+    }
+    }

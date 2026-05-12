@@ -1,0 +1,83 @@
+# Sort the Array (CF 451B)
+# Rating  : 1300
+# Tags    : implementation, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/451/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+void swap(int *a,int *b)
+{
+    int t=*a;
+    *a=*b;
+    *b=t;
+    return ;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+5],b[n+5];
+    vector<int> v;
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+        b[i]=a[i];
+        if(i>0)
+        {
+            if(a[i]<a[i-1])
+                v.push_back(i);
+        }
+    }
+    sort(b,b+n);
+    int cnt=0;
+    int xc=0;
+    //cout<<v.size()<<endl;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==b[i])
+        {
+            cnt++;
+        }
+        if(a[i]==b[n-i-1])
+            xc++;
+    }
+    if(cnt==n)
+    {
+        cout<<"yes"<<endl;
+        cout<<"1 1"<<endl;
+        return 0;
+    }
+    if(xc==n)
+    {
+        cout<<"yes"<<endl;
+        cout<<"1 "<<n<<endl;
+        return 0;
+    }
+    int f=v[0]-1;
+    int pf=f;
+    int l=v[v.size()-1];
+    int k=l;
+        while(f<=l)
+    {
+        //cout<<a[f]<< " " <<a[l]<<endl;
+        swap(&a[f++],&a[l--]);
+    }
+    cnt=0;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]==b[i])
+        {
+            cnt++;
+        }
+     }
+    if(cnt==n)
+    {
+        cout<<"yes"<<endl;
+        cout<<min(pf+1,k+1)<<" "<<max(pf+1,k+1)<<endl;
+        return 0;
+    }
+    cout<<"no"<<endl;
+ }

@@ -1,0 +1,53 @@
+# Princesses and Princes (CF 1327B)
+# Rating  : 1200
+# Tags    : brute force, graphs, greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2020-03-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1327/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n+2];
+        memset(a,0,sizeof(a));
+        vector<int> v[n+2];
+        vector<int> douther;
+        for(int i=1;i<=n;i++){
+            int x;
+            cin>>x;
+            int cnt=0;
+            for(int j=0;j<x;j++){
+                int b;
+                cin>>b;
+                    if(a[b]==0 && cnt==0){
+                        a[b]=i;
+                        cnt++;
+                    }
+                v[i].push_back(b);
+            }
+            if(cnt==0){
+                douther.push_back(i);
+            }
+         }
+        if(douther.size()==0){
+            cout<<"OPTIMAL\n";
+         }else{
+            vector<int> prince;
+            for(int i=1;i<=n;i++){
+                if(a[i]==0){
+                    prince.push_back(i);
+                    break;
+                }
+            }
+            cout<<"IMPROVE\n";
+            cout<<douther[0]<<" "<<prince[0]<<"\n";
+        }
+     }
+}

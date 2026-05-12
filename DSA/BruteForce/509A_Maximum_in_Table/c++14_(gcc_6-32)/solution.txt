@@ -1,0 +1,33 @@
+# Maximum in Table (CF 509A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-04
+# Attempt : #1
+# URL     : https://codeforces.com/contest/509/problem/A
+
+#include<iostream>
+#include<limits.h>
+using namespace std;
+int main()
+{
+    int a[15][15];
+    for(int i=1;i<=10;i++){
+        a[1][i]=1;
+        a[i][1]=1;
+    }
+    for(int i=2;i<=13;i++){
+        for(int j=2;j<=13;j++){
+            a[i][j]=a[i-1][j]+a[i][j-1];
+        }
+    }
+    int n;
+    cin>>n;
+    int mx=INT_MIN;
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            mx=max(a[i][j],mx);
+        }
+    }
+    cout<<mx<<endl;
+}

@@ -1,0 +1,35 @@
+# Array with Odd Sum (CF 1296A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-02-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1296/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n+2];
+        long long int sum=0;
+        int odd=0,even=0;
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+            sum+=a[i];
+            odd+=a[i]%2==1;
+            even+=a[i]%2==0;
+        }
+        if(sum%2){
+            cout<<"YES"<<endl;
+        }else if(odd && even){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
+    }
+}

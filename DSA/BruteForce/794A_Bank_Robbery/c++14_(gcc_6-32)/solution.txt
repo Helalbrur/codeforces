@@ -1,0 +1,27 @@
+# Bank Robbery (CF 794A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/794/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    int a,b,c;
+    //freopen("input.txt","r",stdin);
+    cin>>a>>b>>c;
+    int n,x,cnt=0;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>x;
+        if( x>b && x<c)
+            cnt++;
+    }
+    cout<<cnt<<endl;
+}

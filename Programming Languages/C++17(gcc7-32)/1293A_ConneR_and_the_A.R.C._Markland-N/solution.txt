@@ -1,0 +1,49 @@
+# ConneR and the A.R.C. Markland-N (CF 1293A)
+# Rating  : 1100
+# Tags    : binary search, brute force, implementation
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-19
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1293/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,s,k;
+        cin>>n>>s>>k;
+        map<int,int> mp;
+        bool ok=true;
+        for(int i=1;i<=k;i++){
+            int x;
+            cin>>x;
+            mp[x]++;
+            if(x==s){
+                ok=false;
+            }
+        }
+        if(ok==true){
+            cout<<0<<endl;
+        }else{
+            int mx=INT_MAX;
+            int r=min(s+k+5,n);
+            int l=max(s-k,1);
+            for(int i=s;i<=r;i++){
+                if(mp.find(i)==mp.end()){
+                    mx=min(mx,i-s);
+                    //cout<<i<<" "<<mx<<endl;
+                }
+            }
+            for(int i=l;i<=s;i++){
+                if(mp.find(i)==mp.end()){
+                    mx=min(mx,s-i);
+                    //cout<<i<<" "<<mx<<endl;
+                }
+            }
+            cout<<mx<<endl;
+        }
+    }
+}

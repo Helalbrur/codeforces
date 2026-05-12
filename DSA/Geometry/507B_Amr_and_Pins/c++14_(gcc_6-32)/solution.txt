@@ -1,0 +1,21 @@
+# Amr and Pins (CF 507B)
+# Rating  : 1400
+# Tags    : geometry, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-30
+# Attempt : #1
+# URL     : https://codeforces.com/contest/507/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+#define inf 1000000000
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    int x,y,a,b,r;
+    //freopen("input.txt","r+",stdin);
+    cin>>r>>x>>y>>a>>b;
+    double d=sqrt(fabs(x-a)*fabs(x-a)+fabs(y-b)*fabs(y-b));
+    //cout<<d<<endl;
+    cout<<ceil(d/(2*r))<<endl;
+}

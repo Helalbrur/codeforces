@@ -1,0 +1,160 @@
+# Nice Garland (CF 1108C)
+# Rating  : 1300
+# Tags    : brute force, greedy, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1108/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    string text;
+    cin>>text;
+    int bgr=0,brg=0,gbr=0,grb=0,rbg=0,rgb=0;
+    for(int i=0;i<n;i+=3){
+        if(text[i]!='B'){
+            bgr++;
+        }
+        if(i+1<n && text[i+1]!='G'){
+            bgr++;
+        }
+        if(i+2<n && text[i+2]!='R' ){
+            bgr++;
+        }
+                if(text[i]!='B' ){
+            brg++;
+        }
+        if(i+1<n && text[i+1]!='R' ){
+            brg++;
+        }
+        if(i+2<n && text[i+2]!='G' ){
+            brg++;
+        }
+                if(text[i]!='G'){
+            gbr++;
+        }
+        if(i+1<n && text[i+1]!='B' ){
+            gbr++;
+        }
+        if(i+2<n && text[i+2]!='R'){
+            gbr++;
+        }
+                        if(text[i]!='G'){
+            grb++;
+        }
+        if(i+1<n && text[i+1]!='R' ){
+            grb++;
+        }
+        if(i+2<n && text[i+2]!='B' ){
+            grb++;
+        }
+                        if(text[i]!='R'){
+            rbg++;
+        }
+        if( i+1<n && text[i+1]!='B'){
+            rbg++;
+        }
+        if( i+2<n && text[i+2]!='G'){
+            rbg++;
+        }
+                if(text[i]!='R'){
+            rgb++;
+        }
+        if(i+1<n && text[i+1]!='G' ){
+            rgb++;
+        }
+        if(i+2<n && text[i+2]!='B' ){
+            rgb++;
+        }
+    }
+    int mn=INT_MAX;
+    mn=min(mn,bgr);
+    mn=min(mn,brg);
+    mn=min(gbr,mn);
+    mn=min(grb,mn);
+    mn=min(rbg,mn);
+    mn=min(rgb,mn);
+     char ch[n+2];
+     cout<<mn<<endl;
+    if(mn==bgr){
+                   for(int i=0;i<n;i+=3){
+            ch[i]='B';
+            if(i+1<n){
+                ch[i+1]='G';
+            }
+            if(i+2<n){
+                ch[i+2]='R';
+            }
+                    }
+        ch[n]='\0';
+        cout<<ch<<endl;
+    }else if(mn==brg){
+                   for(int i=0;i<n;i+=3){
+            ch[i]='B';
+            if(i+1<n){
+                ch[i+1]='R';
+            }
+            if(i+2<n){
+                ch[i+2]='G';
+            }
+                    }
+        ch[n]='\0';
+        cout<<ch<<endl;
+    }
+    else if(mn==gbr){
+                   for(int i=0;i<n;i+=3){
+            ch[i]='G';
+            if(i+1<n){
+                ch[i+1]='B';
+            }
+            if(i+2<n){
+                 ch[i+2]='R';
+            }
+                               }
+        ch[n]='\0';
+        cout<<ch<<endl;
+    }
+    else if(mn==grb){
+                   for(int i=0;i<n;i+=3){
+            ch[i]='G';
+            if(i+1<n){
+                ch[i+1]='R';
+            }
+            if(i+2<n){
+                 ch[i+2]='B';
+            }
+                               }
+        ch[n]='\0';
+        cout<<ch<<endl;
+    }
+    else if(mn==rbg){
+                   for(int i=0;i<n;i+=3){
+            ch[i]='R';
+            if(i+1<n){
+                ch[i+1]='B';
+            }
+            if(i+2<n){
+                 ch[i+2]='G';
+            }
+                               }
+        ch[n]='\0';
+        cout<<ch<<endl;
+    }
+    else if(mn==rgb){
+                   for(int i=0;i<n;i+=3){
+            ch[i]='R';
+            if(i+1<n){
+                ch[i+1]='G';
+            }
+            if(i+2<n){
+                 ch[i+2]='B';
+            }
+                               }
+        ch[n]='\0';
+        cout<<ch<<endl;
+    }
+}

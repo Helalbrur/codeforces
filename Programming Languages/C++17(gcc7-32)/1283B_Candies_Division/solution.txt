@@ -1,0 +1,20 @@
+# Candies Division (CF 1283B)
+# Rating  : 900
+# Tags    : math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-28
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1283/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        cout<<min((n/k)*k+k/2,n)<<endl;
+    }
+}

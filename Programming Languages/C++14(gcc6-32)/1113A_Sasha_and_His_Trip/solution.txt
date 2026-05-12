@@ -1,0 +1,26 @@
+# Sasha and His Trip (CF 1113A)
+# Rating  : 900
+# Tags    : dp, greedy, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-02-16
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1113/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,v;
+    cin>>n>>v;
+    int sum=0,litter=0;
+    sum+=min(v,n-1);
+    litter=v;
+    for(int i=2;i<=n;i++){
+        litter--;
+        if(litter<v && litter<n-i){
+            int temp=v-litter;
+            litter+=v-litter;
+            sum+=temp*i;
+        }
+    }
+    cout<<sum<<endl;
+ }

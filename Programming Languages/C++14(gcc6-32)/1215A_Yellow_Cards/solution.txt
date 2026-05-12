@@ -1,0 +1,43 @@
+# Yellow Cards (CF 1215A)
+# Rating  : 1000
+# Tags    : greedy, implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-09-16
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1215/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a1,a2,k1,k2,n;
+    cin>>a1;
+    cin>>a2;
+    cin>>k1;
+    cin>>k2;
+    cin>>n;
+    int mn=0,mx=0;
+    if(max(a1*k1,a2*k2)>n ||(a1*(k1-1)+a2*(k2-1)) >n){
+        mn=0;
+    }else {
+        mn=n-(a1*(k1-1)+a2*(k2-1));
+     }
+    if(min(k1,k2)>n){
+        mx=0;
+    }
+    else if(k1>k2){
+        mx=min(a2,n/k2);
+        n=n-mx*k2;
+        if(n>=k1){
+            mx+=min(a1,n/k1);
+         }
+    }
+    else{
+        mx=min(a1,n/k1);
+        n=n-mx*k1;
+        if(n>=k2){
+            mx+=min(a2,n/k2);
+         }
+    }
+    cout<<mn<<" "<<mx<<endl;
+}

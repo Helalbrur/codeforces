@@ -1,0 +1,40 @@
+# Be Positive (CF 1130A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-02-24
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1130/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+2];
+    int p=0,ne=0;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        if(a[i]<0){
+            ne++;
+        }
+        if(a[i]>0){
+            p++;
+        }
+    }
+    if(ne>p){
+            if(ne>=(n+1)/2){
+                cout<<"-1"<<endl;
+            }else{
+                cout<<0<<endl;
+            }
+     }
+    else{
+         if(p>=(n+1)/2){
+                cout<<"1"<<endl;
+            }else{
+                cout<<0<<endl;
+            }
+    }
+}

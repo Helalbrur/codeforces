@@ -1,0 +1,40 @@
+# Dubstep (CF 208A)
+# Rating  : 900
+# Tags    : strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/208/problem/A
+
+#include <bits/stdc++.h>
+ using namespace std;
+ int main ()
+{
+    string a;
+    int cnt=0, flag=0;
+   // freopen("input.txt", "r", stdin);
+    cin>>a;
+    int l= a.size();
+    bool fl=false;
+    for(int i=0; i<l; i++)
+    {
+        if(a[i]=='W' && a[i+1]=='U'&& a[i+2]=='B')
+        {
+            cnt++;
+            if(cnt==1 && fl)
+                cout<<" ";
+            i+=2;
+        }
+        else
+        {
+            cout<<a[i];
+            fl=true;
+            cnt=0;
+        }
+    }
+    if(fl==false)
+    {
+        cout<<"WUB"<<endl;
+    }
+    return 0;
+}

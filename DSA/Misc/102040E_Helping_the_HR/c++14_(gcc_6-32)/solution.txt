@@ -1,0 +1,73 @@
+# Helping the HR (CF 102040E)
+# Rating  : ?
+# Tags    : 
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-05-08
+# Attempt : #1
+# URL     : https://codeforces.com/contest/102040/problem/E
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+        int n;
+    //freopen("input.txt","r+",stdin);
+        while(scanf("%d",&n)==1)
+    {
+        if(n==0)
+        {
+                        break; 
+        }
+        int h1,h2,m1,m2,s1,s2;
+        char ch;
+        int cnt=0;
+        getchar();
+        int i=0;
+        while(i<n){
+                            scanf("\n%c:%d:%d:%d:%d:%d:%d",&ch,&h1,&m1,&s1,&h2,&m2,&s2);
+            //cout<<ch<<" "<<h1<<" "<<h2<<endl;
+                                    if(ch=='D'){
+                int day=8*60*60;
+                int d1=9*60*60+30*60;
+                                int t3=8*60*60+30*60;
+                int t1=h1*60*60+m1*60+s1;
+                t1=max(t1,t3);
+                int t2=h2*60*60+m2*60+s2;
+                //cout<<ch<<" "<<t2-t1<<" "<<day<<" "<<t1<<" "<<d1<<endl;
+                //cout<<h1<<" "<<m1<<" "<<s1<<endl;
+                if(((t2-t1)<day) ||(t1>d1))
+                {
+                    cnt++;
+                                    }
+                            }
+            else if(ch=='E'){
+                int night=9*60*60;
+                int d1=12*60*60+30*60;
+                int t3=8*60*60+30*60;
+                                 int t1=h1*60*60+m1*60+s1;
+                int t2=h2*60*60+m2*60+s2;
+                t1=max(t1,t3);
+               // cout<<ch<<" "<<t2-t1<<" "<<night<<" "<<t1<<" "<<d1<<endl;
+                 //cout<<h1<<" "<<m1<<" "<<s1<<endl;
+                if(((t2-t1)<night) ||(t1>d1)){
+                    cnt++;
+                }
+                            }
+            //cout<<ch<<" "<<cnt<<endl;
+                        i++;
+        }
+        if(cnt>3){
+            cout<<"Issue Show Cause Letter"<<endl;
+         }else if(cnt==3){
+            cout<<"3 Point(s) Deducted"<<endl;
+        }
+        else if(cnt==2){
+            cout<<"2 Point(s) Deducted"<<endl;
+        }
+        else if(cnt==1){
+            cout<<"1 Point(s) Deducted"<<endl;
+        }else{
+            cout<<"All OK"<<endl;
+        }
+           }
+}

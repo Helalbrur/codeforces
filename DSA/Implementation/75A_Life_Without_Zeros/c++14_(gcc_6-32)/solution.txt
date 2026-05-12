@@ -1,0 +1,39 @@
+# Life Without Zeros (CF 75A)
+# Rating  : 1000
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-03-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/75/problem/A
+
+#include<bits/stdc++.h>
+#include<string>
+using namespace std;
+int remz(int a){
+   int n=0,ten=1;
+    while(a)
+    {
+        int r=a%10;
+        a=a/10;
+         if(r)
+        {
+            n+=r*ten;
+            ten*=10;
+        }
+    }
+    return n;
+}
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+     int c=a+b;
+   if(remz(c)==remz(a)+remz(b))
+   {
+       cout<<"YES"<<endl;
+   }
+   else
+   {
+       cout<<"NO"<<endl;
+   }
+}

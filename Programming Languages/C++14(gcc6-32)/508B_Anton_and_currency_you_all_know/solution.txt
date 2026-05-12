@@ -1,0 +1,45 @@
+# Anton and currency you all know (CF 508B)
+# Rating  : 1300
+# Tags    : greedy, math, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/508/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    int len=s.length();
+    vector<int> v;
+    for(int i=0;i<len;i++)
+    {
+        int x=s[i]-'0';
+        if(x%2==0)
+        {
+            v.push_back(i);
+        }
+    }
+    if(v.size()==0)
+    {
+        cout<<-1<<endl;
+        return 0;
+    }
+    bool flag=false;
+    for(int i=0;i<v.size();i++)
+    {
+        if(s[len-1]>s[v[i]])
+        {
+            swap(s[v[i]],s[len-1]);
+            flag=true;
+            break;
+        }
+     }
+    if(flag==false)
+    {
+        swap(s[v[v.size()-1]],s[len-1]);
+    }
+    cout<<s<<endl;
+}

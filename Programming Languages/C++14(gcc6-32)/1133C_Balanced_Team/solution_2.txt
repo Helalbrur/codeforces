@@ -1,0 +1,27 @@
+# Balanced Team (CF 1133C)
+# Rating  : 1200
+# Tags    : sortings, two pointers
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-03-08
+# Attempt : #2
+# URL     : https://codeforces.com/contest/1133/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    //cout<<1<<endl;
+    int n;
+    cin>>n;
+    int a[n+2];
+    int mx=0;
+       for(int i=0;i<n;i++){
+        cin>>a[i];
+        }
+   sort(a,a+n);
+    for(int i=0;i<n;i++){
+        int res=upper_bound(a,a+n,a[i]+5)-(a);
+       // cout<<a[i]+5<<" "<<res<<endl;
+        mx=max(mx,res-i);
+           }
+    cout<<mx<<endl;
+}

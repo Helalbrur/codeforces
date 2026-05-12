@@ -1,0 +1,73 @@
+# Maximum Diameter Graph (CF 1082D)
+# Rating  : 1800
+# Tags    : constructive algorithms, graphs, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1082/problem/D
+
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<map>
+#include<string.h>
+#include<math.h>
+#include<set>
+//not accepted yet
+using namespace std;
+struct st{
+    int deg,id;
+};
+bool cmp(st a,st b){
+    return a.deg<b.deg;
+}
+int main(){
+    int n;
+    cin>>n;
+    st a[n+3];
+    int cnt=0;
+    bool vis[n+2];
+    memset(vis,0,sizeof(vis));
+    vector<int> one;
+    vector<int> two;
+    for(int i=1;i<=n;i++){
+        cin>>a[i].deg;
+        a[i].id=i;
+        cnt+=a[i].deg;
+        if(a[i].deg==1){
+            one.push_back(i);
+        }else{
+            two.push_back(i);
+        }
+    }
+    if(cnt>=2*n-2){
+        int t=two.size();
+        int on=one.size();
+        cout<<"YES"<<" "<<max(0,t-1)+min(2,on)<<endl;
+        cout<<n-1<<endl;
+        int lt=-1;
+        if(one.size()>0){
+            lt=one.back();
+            one.pop_back();
+        }
+        for(int i=1;i<=n;i++){
+            if(a[i].deg>1){
+                 if(lt!=-1){
+                    --a[i].deg;
+                    --a[lt].deg;
+                    cout<<lt<<" "<<i<<endl;
+                }
+                lt=i;
+            }
+        }
+        for(int i=two.size()-1;i>=0;i--){
+            while(!one.empty() && a[two[i]].deg>0){
+                --a[two[i]].deg;
+                cout<<two[i]<<" "<<one.back()<<endl;
+                one.pop_back();
+            }
+        }
+        }else{
+        cout<<"NO"<<endl;
+    }
+}

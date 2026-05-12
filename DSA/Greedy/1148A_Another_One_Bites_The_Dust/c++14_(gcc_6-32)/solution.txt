@@ -1,0 +1,19 @@
+# Another One Bites The Dust (CF 1148A)
+# Rating  : 800
+# Tags    : greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1148/problem/A
+
+#include<iostream>
+using namespace std;
+int main(){
+    int a,b,c;
+    cin>>a>>b>>c;
+    int64_t cnt=(int64_t)2*c+(int64_t)2*min(a,b);
+    if(max(a,b)>min(a,b)){
+        cnt++;
+    }
+    cout<<cnt<<endl;
+}

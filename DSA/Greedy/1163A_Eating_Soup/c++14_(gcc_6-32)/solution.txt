@@ -1,0 +1,19 @@
+# Eating Soup (CF 1163A)
+# Rating  : 900
+# Tags    : greedy, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-05-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1163/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,m;
+    cin>>n>>m;
+    if(m==0){
+        cout<<1<<endl;
+        return 0;
+    }
+    cout<<min(m,n-m)<<endl;
+}

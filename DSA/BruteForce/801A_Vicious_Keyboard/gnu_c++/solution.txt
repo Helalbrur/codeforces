@@ -1,0 +1,48 @@
+# Vicious Keyboard (CF 801A)
+# Rating  : 1100
+# Tags    : brute force
+# Lang    : GNU C++
+# Solved  : 2017-04-17
+# Attempt : #1
+# URL     : https://codeforces.com/contest/801/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string text;
+   // freopen("a.txt","r+",stdin);
+    cin>>text;
+    bool flag=false;
+    int cnt=0;
+    int l=text.length();
+    bool a[l+5];
+    memset(a,0,sizeof a);
+    for(int i=0;i<l;i++)
+    {
+        if(text[i]=='V' && i<l-1 && text[i+1]=='K' && a[i]==false && a[i+1]==false)
+        {
+            cnt++;
+            a[i]=true;
+            a[i+1]=true;
+        }
+     }
+    for(int i=0;i<l;i++)
+    {
+        if(flag==false && text[i]=='V' && i<l-1 && text[i+1]!='K' && a[i+1]==false && a[i]==false )
+        {
+            cnt++;
+            flag=true;
+             a[i]=true;
+            a[i+1]=true;
+        }
+        else if(flag==false && text[i]=='K' && i>0 && text[i-1]!='V' && a[i]==false && a[i-1]==false)
+        {
+            cnt++;
+             a[i]=true;
+            a[i-1]=true;
+            flag=true;
+        }
+    }
+    cout<<cnt<<endl;
+}

@@ -1,0 +1,36 @@
+# Best Subsegment (CF 1117A)
+# Rating  : 1100
+# Tags    : implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-02-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1117/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+ int n,m,k;
+ cin>>n;
+ int a[n+2];
+ int mx=0,cnt=1,f=0;
+ for(int i=0; i<n;i++){
+    cin>>a[i];
+    mx=max(mx,a[i]);
+  }
+bool flag=0;
+ for(int i=0; i<n;i++){
+    if(a[i]==mx ){
+        if(flag==1){
+            cnt++;
+        }
+        flag=1;
+        f=max(cnt,f);
+    }else{
+        flag=0;
+        cnt=1;
+        f=max(cnt,f);
+    }
+  }
+cout<<f<<endl;
+  }

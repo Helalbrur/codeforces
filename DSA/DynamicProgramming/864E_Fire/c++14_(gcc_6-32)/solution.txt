@@ -1,0 +1,65 @@
+# Fire (CF 864E)
+# Rating  : 2000
+# Tags    : dp, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-20
+# Attempt : #1
+# URL     : https://codeforces.com/contest/864/problem/E
+
+#include<bits/stdc++.h>
+using namespace std;
+int n;
+struct item{
+    int ti,di,val,id;
+};
+bool cmp(item a,item b){
+    return a.di<b.di;
+}
+item it[110];
+int dp[105][2050];
+int f(int i,int time){
+    if(i>n){
+        return 0;
+    }
+     if(dp[i][time]!=-1){
+        return dp[i][time];
+    }
+    int a=0;
+    if(time+it[i].ti<it[i].di ){
+        a=f(i+1,time+it[i].ti)+it[i].val;
+    }
+    int b=f(i+1,time);
+      dp[i][time]=max(a,b);
+      return dp[i][time];
+}
+vector<int> res;
+void find_item(int i,int time){
+    if(i>n){
+        return;
+    }
+    int a=0;
+    if(time+it[i].ti<it[i].di ){
+        a=f(i+1,time+it[i].ti)+it[i].val;
+    }
+    int b=f(i+1,time);
+    if(a>b) {
+        res.push_back(it[i].id);
+        find_item(i+1, time+it[i].ti);
+    }
+    else find_item(i+1, time);
+}
+int main()
+{
+    cin>>n;
+    for(int i=1;i<=n;i++){
+        cin>>it[i].ti>>it[i].di>>it[i].val;
+        it[i].id=i;
+    }
+    memset(dp,-1,sizeof(dp));
+    sort(it+1,it+n+1,cmp);
+    cout<<f(1,0)<<endl;
+    find_item(1,0);
+    cout << res.size() << "\n";
+    for(int id:res) cout << id << " ";
+    cout<<endl;
+}

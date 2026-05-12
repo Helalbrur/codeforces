@@ -1,0 +1,24 @@
+# Key races (CF 835A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/835/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,a,b,x,y;
+    cin>>n>>a>>b>>x>>y;
+    int p=(n*a)+x*2;
+    int q=(n*b)+2*y;
+    if(p>q){
+        cout<<"Second"<<endl;
+    }else if(q>p){
+        cout<<"First"<<endl;
+    }else{
+        cout<<"Friendship"<<endl;
+    }
+}

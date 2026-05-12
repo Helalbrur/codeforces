@@ -1,0 +1,21 @@
+# JOE is on TV! (CF 1293B)
+# Rating  : 1000
+# Tags    : combinatorics, greedy, math
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-19
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1293/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+     double a=double(n);
+    double s=0.0;
+    for(int i=1;i<=n;i++){
+        s+=(1.0/double(i));
+    }
+    cout<<s<<endl;
+}

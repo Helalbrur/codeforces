@@ -1,0 +1,43 @@
+# Superhero Transformation (CF 1111A)
+# Rating  : 1000
+# Tags    : implementation, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-02-03
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1111/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isVowel(char c){
+    if(c=='a' || c=='u' || c=='i' || c=='e' || c=='o')
+        return true;
+    return false;
+}
+bool isConsonant(char c){
+    if(c=='a' || c=='u' || c=='i' || c=='e' || c=='o')
+        return false;
+    return true;
+}
+int main(){
+    char s[1010],t[1010];
+    cin>>s;
+    cin>>t;
+    int v_s=0,v_t=0,c_t=0,c_s=0;
+    if(strlen(s)==strlen(t)){
+        for(int i=0;i<strlen(s);i++){
+            if(isVowel(s[i]) && isVowel(t[i])){
+                continue;
+            }else if(isConsonant(s[i]) && isConsonant(t[i])){
+                continue;
+            }
+            else{
+                cout<<"No"<<endl;
+                return 0;
+            }
+        }
+        cout<<"Yes"<<endl;
+           }
+    else{
+            cout<<"No"<<endl;
+        }
+}

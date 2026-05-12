@@ -1,0 +1,27 @@
+# Vanya and Fence (CF 677A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-01
+# Attempt : #1
+# URL     : https://codeforces.com/contest/677/problem/A
+
+#include<iostream>
+#include<string>
+#include<math.h>
+using namespace std;
+int main()
+{
+    int n,h;
+    cin>>n>>h;
+    int a,cnt=0;
+    for(int i=1;i<=n;i++){
+        cin>>a;
+        if(a>h){
+            cnt+=2;
+        }else{
+            cnt++;
+        }
+    }
+    cout<<cnt<<endl;
+}

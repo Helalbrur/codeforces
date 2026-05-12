@@ -1,0 +1,46 @@
+# Odd sum (CF 797B)
+# Rating  : 1400
+# Tags    : dp, greedy, implementation
+# Lang    : GNU C++
+# Solved  : 2017-04-15
+# Attempt : #1
+# URL     : https://codeforces.com/contest/797/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int b[n+5];
+    int sum=0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>b[i];
+        if(b[i]>0)
+            sum+=b[i];
+    }
+    if(sum%2==1)
+    {
+        cout<<sum<<endl;
+        return 0;
+    }
+    int mx=-9999999999;
+    for(int i=0;i<n;i++)
+    {
+       if(b[i]>=0)
+       {
+           if(((sum-b[i])%2==1)&& ( (sum-b[i])>mx))
+           {
+               mx=sum-b[i];
+           }
+        }
+       else{
+        if((abs(sum+b[i])%2==1)&& ( sum+b[i]>mx))
+           {
+               mx=sum+b[i];
+           }
+       }
+    }
+    cout<<mx<<endl;
+}

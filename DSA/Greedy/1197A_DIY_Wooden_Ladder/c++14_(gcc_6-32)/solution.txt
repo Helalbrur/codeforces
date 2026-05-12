@@ -1,0 +1,24 @@
+# DIY Wooden Ladder (CF 1197A)
+# Rating  : 900
+# Tags    : greedy, math, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1197/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        int a[n+3];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        sort(a,a+n);
+                cout<<min(a[n-2]-1,n-2)<<endl;
+                   }
+}

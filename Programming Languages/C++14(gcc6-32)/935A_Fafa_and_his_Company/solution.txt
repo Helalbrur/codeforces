@@ -1,0 +1,27 @@
+# Fafa and his Company (CF 935A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-01
+# Attempt : #1
+# URL     : https://codeforces.com/contest/935/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int sq=sqrt(n);
+    int cnt=1;
+    for(int i=2;i<=sq;i++){
+        if(n%i==0){
+            if(n/i==i){
+                cnt+=1;
+            }else{
+                cnt+=2;
+            }
+         }
+    }
+    cout<<cnt<<endl;
+}

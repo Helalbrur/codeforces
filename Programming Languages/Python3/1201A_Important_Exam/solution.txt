@@ -1,0 +1,25 @@
+# Important Exam (CF 1201A)
+# Rating  : 900
+# Tags    : implementation, strings
+# Lang    : Python 3
+# Solved  : 2019-08-21
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1201/problem/A
+
+n,q=map(int,input().split())
+a=[[ 0 for i in range(27)] for j in range(q+1)]
+s=[" " for i in range(n+2)]
+for i in range(n):
+    s[i]=input()
+b=list(map(int,input().split()))
+ for i in range(n):
+    for j in range(q):
+        t=ord(s[i][j])-ord('A');
+        a[j][t]=a[j][t]+1
+        #print(s[i][j],t,a[j][t])
+        cnt=0
+#print(a)
+for i in range(q):
+    cnt+=max(a[i])*b[i]
+    #print(max(a[i]))
+print(cnt)

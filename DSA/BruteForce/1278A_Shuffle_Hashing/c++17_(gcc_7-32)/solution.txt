@@ -1,0 +1,54 @@
+# Shuffle Hashing (CF 1278A)
+# Rating  : 1000
+# Tags    : brute force, implementation, strings
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2019-12-19
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1278/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        string p,h;
+        cin>>p;
+        cin>>h;
+        int a[27];
+        memset(a,0,sizeof(a));
+        int b[27];
+         for(int i=0;i<p.length();i++){
+            a[p[i]-'a']++;
+        }
+        bool ok=true;
+        int h_len=h.length();
+        int p_len=p.length();
+        for(int i=0;i<=h_len-p_len;i++){
+            memset(b,0,sizeof(b));
+             for(int j=i;j<h_len && j-i<p_len;j++){
+                b[h[j]-'a']++;
+                //cout<<h[j];
+            }
+            //cout<<endl;
+              ok=true;
+            for(int j=0;j<26;j++){
+                if(a[j]!=b[j]){
+                    ok=false;
+                    break;
+                }
+                //cout<<a[j]<<" "<<b[j]<<endl;
+            }
+            if(ok==true){
+                break;
+            }
+            //cout<<"__"<<ok<<"__"<<endl;
+        }
+        if(ok==true && p_len<=h_len){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
+    }
+}

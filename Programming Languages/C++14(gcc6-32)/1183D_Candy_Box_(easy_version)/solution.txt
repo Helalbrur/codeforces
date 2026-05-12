@@ -1,0 +1,48 @@
+# Candy Box (easy version) (CF 1183D)
+# Rating  : 1400
+# Tags    : greedy, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-06-26
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1183/problem/D
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main(){
+   int q;
+   cin>>q;
+   for(int t=1;t<=q;t++){
+        int n;
+        cin>>n;
+        int a[n+2];
+        map<int,int> mp;
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+            mp[a[i]]++;
+        }
+        vector<int> v;
+        int mx=0;
+        for(auto it=mp.begin();it!=mp.end();++it){
+            v.push_back(it->second);
+            mx=max(it->second,mx);
+        }
+        sort(v.begin(),v.end());
+        int sum=0;
+        int b[mx+5];
+        memset(b,0,sizeof(b));
+        for(int i=v.size()-1;i>=0;i--){
+            int temp=v[i];
+            if(b[temp]==0){
+                sum+=temp;
+                b[temp]=1;
+            }else{
+                while(b[temp]==1 && temp>0){
+                    temp--;
+                }
+                b[temp]=1;
+                sum+=temp;
+            }
+        }
+        cout<<sum<<endl;
+           }
+}

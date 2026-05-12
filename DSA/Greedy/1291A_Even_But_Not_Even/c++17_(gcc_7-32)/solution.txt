@@ -1,0 +1,46 @@
+# Even But Not Even (CF 1291A)
+# Rating  : 900
+# Tags    : greedy, math, strings
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-02-02
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1291/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        int even=0;
+        bool ok=true;
+        int sum=0;
+        for(char c: s){
+            if((c-'0')%2==0){
+                even++;
+            }
+            sum+=c-'0';
+        }
+        if(even==n) ok=false;
+        if(ok==false){
+            cout<<"-1"<<endl;
+        }else{
+            while(sum%2==1 || (s[n-1]-'0')%2==0){
+                sum-=s[n-1]-'0';
+                s.pop_back();
+                n--;
+                if(n<=0) break;
+            }
+            if(s.length()){
+                cout<<s<<endl;
+            }else{
+                cout<<"-1"<<endl;
+            }
+        }
+     }
+}

@@ -1,0 +1,32 @@
+# The Football Season (CF 1244C)
+# Rating  : 2000
+# Tags    : brute force, math, number theory
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-10-13
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1244/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int64_t n,p,w,d;
+    cin>>n>>p>>w>>d;
+    if(p==0){
+        cout<<0<<" "<<0<<" "<<n<<endl;
+        return 0;
+    }
+    for(int64_t i=0;i<=min(n,(int64_t)10000000);i++){
+        if(p>(i*w) && (p-(i*w))%d==0 && (i+(p-(i*w))/d)<=n && ( i+((p-(i*w))/d) + (n-i-(p-(i*w))/d) ==n) && (n-i-(p-(i*w))/d)>=0 ){
+            cout<<i<<" "<<(p-(i*w))/d<<" "<<n-i-(p-(i*w))/d<<endl;
+            return 0;
+        }else if(p> (i*d) &&  (p-(i*d))%w==0 && (i+ (p-(i*d))/w)<=n && (n-i-(p-(i*d))/w)>=0 && (i+(n-i-(p-(i*d))/w) +(p-(i*d))/w)==n){
+             cout<<(p-(i*d))/w<<" "<<i<<" "<<n-i-(p-(i*d))/w <<endl;
+             return 0;
+        }
+    }
+    cout<<"-1"<<endl;
+ }

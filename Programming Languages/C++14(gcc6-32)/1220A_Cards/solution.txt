@@ -1,0 +1,51 @@
+# Cards (CF 1220A)
+# Rating  : 800
+# Tags    : implementation, sortings, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-09-18
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1220/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int m;
+    cin>>m;
+    string text;
+    cin>>text;
+    int e=0,z=0,r=0,o=0,n=0;
+    for(int i=0;i<m;i++){
+        if(text[i]=='e'){
+            e++;
+        }else if(text[i]=='z'){
+            z++;
+        }
+        else if(text[i]=='r'){
+            r++;
+        }
+        else if(text[i]=='n'){
+            n++;
+        }
+        else if(text[i]=='o'){
+            o++;
+        }
+    }
+    int one=min(o,min(n,e));
+    o=o-one;
+    n=n-one;
+    e=e-one;
+    int zero=min(z,min(e,min(r,o)));
+    for(int i=1;i<=one;i++){
+        if(i>1){
+            cout<<" ";
+        }
+        cout<<1;
+    }
+    for(int i=1;i<=zero;i++){
+        if(i>1 || one>0){
+            cout<<" ";
+        }
+        cout<<0;
+    }
+}

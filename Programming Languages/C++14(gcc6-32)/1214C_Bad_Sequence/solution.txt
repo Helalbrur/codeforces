@@ -1,0 +1,46 @@
+# Bad Sequence (CF 1214C)
+# Rating  : 1200
+# Tags    : data structures, greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-09-04
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1214/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    if(n%2){
+        cout<<"No"<<endl;
+        return 0;
+    }
+    stack<char> q;
+    int op=0,cl=0,c=0;
+     for(int i=0;i<s.length();i++){
+        if(s[i]=='('){
+            q.push('(');
+            op++;
+        }else{
+            if(q.size()>0){
+                q.pop();
+             }else{
+                c++;
+            }
+            cl++;
+        }
+    }
+    if(op!=cl){
+        cout<<"No"<<endl;
+    }
+    else if(q.empty()){
+        cout<<"Yes"<<endl;
+    }else if(c==1 && q.top()=='('){
+        cout<<"Yes"<<endl;
+    }else{
+        cout<<"No"<<endl;
+    }
+}

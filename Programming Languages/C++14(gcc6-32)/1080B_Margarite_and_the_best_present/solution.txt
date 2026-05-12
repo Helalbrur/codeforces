@@ -1,0 +1,24 @@
+# Margarite and the best present (CF 1080B)
+# Rating  : 900
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-17
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1080/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+long long f(long long x){
+    if(x%2==0){
+        return x/2;
+    }
+    return -x+f(x-1);
+}
+int main(){
+        long long int q,l,r;
+    cin>>q;
+    while(q--){
+        cin>>l>>r;
+        cout<<f(r)-f(l-1)<<endl;
+    }
+}

@@ -1,0 +1,27 @@
+# Buying A House (CF 796A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : GNU C++
+# Solved  : 2017-04-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/796/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+     int n,m,k;
+    //freopen("123.txt","r",stdin);
+    cin>>n>>m>>k;
+    int a[n+5];
+    int mn=1000;
+    for(int i=1;i<=n;i++)
+    {
+        cin>>a[i];
+        if(a[i]&& a[i]<=k && mn>(abs(m-i)*10) )
+        {
+            mn=abs(m-i)*10;
+        }
+    }
+    cout<<mn<<endl;
+}

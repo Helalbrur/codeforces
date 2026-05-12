@@ -1,0 +1,44 @@
+# Prime Minister (CF 1178A)
+# Rating  : 800
+# Tags    : greedy
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-20
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1178/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+2];
+    vector<int> ls;
+    int sum=0,total=0;
+    for(int i=1;i<=n;i++){
+        cin>>a[i];
+                    total+=a[i];
+                    }
+    sum+=a[1];
+    ls.push_back(1);
+    for(int i=2;i<=n;i++){
+        int s=total-sum;
+        if(sum>s){
+            break;
+        }
+        if(a[i]*2<=a[1]){
+            ls.push_back(i);
+            sum+=a[i];
+        }
+                            }
+      int s=total-sum;
+       if(sum>s){
+        cout<<ls.size()<<endl;
+        for(int i=0;i<ls.size();i++){
+            cout<<ls[i]<<" ";
+        }
+        cout<<endl;
+    }else{
+        cout<<0<<endl;
+    }
+}

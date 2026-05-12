@@ -1,0 +1,44 @@
+# Badges (CF 1214B)
+# Rating  : 1100
+# Tags    : brute force, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-09-04
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1214/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int b,q,n;
+    cin>>b>>q>>n;
+    int cnt=0;
+    map<pair<int,int>,int> mp;
+    if(min(b,q)>=n){
+        for(int i=0;i<=n;i++){
+            mp[make_pair(i,n-i)]++;
+        }
+        for(int i=0;i<=n;i++){
+            mp[make_pair(n-i,i)]++;
+        }
+        cout<<mp.size()<<endl;
+    }else if(b>=n){
+        for(int i=n-q;i<=n;i++){
+            mp[make_pair(i,n-i)]++;
+        }
+        cout<<mp.size()<<endl;
+    }else if(q>=n){
+        for(int i=n-b;i<=n;i++){
+            mp[make_pair(i,n-i)]++;
+        }
+        cout<<mp.size()<<endl;
+    }else{
+        for(int i=n-q;i<=b;i++){
+            mp[make_pair(i,n-i)]++;
+        }
+        for(int i=n-b;i<=q;i++){
+            mp[make_pair(n-i,i)]++;
+        }
+        cout<<mp.size()<<endl;
+    }
+}

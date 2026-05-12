@@ -1,0 +1,26 @@
+# Polycarp's Pockets (CF 1003A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1003/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+2];
+    map<int,int> mp;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        mp[a[i]]++;
+    }
+    int i=0;
+    for(auto it=mp.begin();it!=mp.end();++it){
+        i=max(it->second,i);
+    }
+    cout<<i<<endl;
+}

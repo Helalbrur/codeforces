@@ -1,0 +1,14 @@
+# Again Twenty Five!
+
+| Field | Value |
+|-------|-------|
+| Language | C++14(gcc6-32) |
+| Tags | `number theory` |
+| Solved | 2019-11-29 |
+| Link | [CF](https://codeforces.com/contest/630/problem/A) |
+
+## Attempts
+
+| File |
+|------|
+| [solution.txt](./solution.txt) |

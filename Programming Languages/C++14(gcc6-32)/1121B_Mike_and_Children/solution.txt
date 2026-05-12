@@ -1,0 +1,33 @@
+# Mike and Children (CF 1121B)
+# Rating  : 1200
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-03-03
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1121/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int a[n+2];
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    map<long long int,long long int> mp; 
+    for(int i=0;i<n;i++){
+       for(int j=0;j<n;j++){
+            if(i!=j){
+                mp[a[i]+a[j]]++;
+            }
+       }
+    }
+    int cnt=0;
+    for(auto it=mp.begin();it!=mp.end();++it){
+        if(it->second>cnt){
+            cnt=it->second;
+        }
+    }
+    cout<<cnt/2<<endl;
+}

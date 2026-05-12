@@ -1,0 +1,29 @@
+# Nearest Interesting Number (CF 1183A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-06-26
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1183/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int get(int a){
+        while(true){
+        int n=a;
+       int sum=0;
+        while(n){
+                            sum+=n%10;
+            n=n/10;
+        }
+        if(sum%4==0){
+            return a;
+        }
+        a++;
+    }
+}
+int main(){
+    int a;
+    cin>>a;
+    cout<<get(a)<<endl;
+}

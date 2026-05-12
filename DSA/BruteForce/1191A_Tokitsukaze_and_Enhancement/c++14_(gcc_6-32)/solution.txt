@@ -1,0 +1,63 @@
+# Tokitsukaze and Enhancement (CF 1191A)
+# Rating  : 800
+# Tags    : brute force
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-12
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1191/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    if(n%4==1){
+        cout<<0<<" A"<<endl;
+        return 0;
+    }
+    if((n+1)%4==1){
+        cout<<1<< " A"<<endl;
+        return 0;
+    }
+    if((n+2)%4==1){
+        cout<<2<< " A"<<endl;
+        return 0;
+    }
+    if(n%4==3){
+        cout<<0<< " B"<<endl;
+        return 0;
+    }
+    if((n+1)%4==3){
+        cout<<1<< " B"<<endl;
+        return 0;
+    }
+    if((n+2)%4==3){
+        cout<<2<< " B"<<endl;
+        return 0;
+    }
+    if(n%4==2){
+        cout<<0<< " C"<<endl;
+        return 0;
+    }
+    if((n+1)%4==2){
+        cout<<1<< " C"<<endl;
+        return 0;
+    }
+    if((n+2)%4==2){
+        cout<<2<< " C"<<endl;
+        return 0;
+    }
+    if(n%4==0){
+        cout<<0<< " D"<<endl;
+        return 0;
+    }
+    if((n+1)%4==0){
+        cout<<1<< " D"<<endl;
+        return 0;
+    }
+    if((n+2)%4==0){
+        cout<<2<< " D"<<endl;
+        return 0;
+    }
+}

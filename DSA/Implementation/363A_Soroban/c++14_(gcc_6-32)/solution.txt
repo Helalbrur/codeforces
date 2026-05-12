@@ -1,0 +1,56 @@
+# Soroban (CF 363A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-30
+# Attempt : #1
+# URL     : https://codeforces.com/contest/363/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main()
+{
+  string s;
+  cin>>s;
+  int len=s.length();
+  for(int i=len-1;i>=0;i--)
+  {
+      int x=s[i]-'0';
+      if(x>4)
+      {
+          cout<<"-O|";
+          x=x%5;
+          int cnt=x;
+            while(x)
+            {
+                cout<<"O";
+                x-- ;
+            }
+            cout<<"-";
+            x=4-cnt;
+            while(x)
+            {
+                cout<<"O";
+                x-- ;
+            }
+      }
+      else
+      {
+          cout<<"O-|";
+          int cnt=x;
+            while(x)
+            {
+                cout<<"O";
+                x-- ;
+            }
+            cout<<"-";
+            x=4-cnt;
+            while(x)
+            {
+                cout<<"O";
+                x-- ;
+            }
+      }
+      cout<<endl;
+  }
+}

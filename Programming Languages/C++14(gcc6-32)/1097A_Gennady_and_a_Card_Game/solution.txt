@@ -1,0 +1,28 @@
+# Gennady and a Card Game (CF 1097A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-04
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1097/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    //freopen("input.txt","r+",stdin);
+    string text;
+    cin>>text;
+    string a,b,c,d,e;
+    cin>>a>>b>>c>>d>>e;
+    if(text[1]==a[1]||text[1]==b[1]||text[1]==c[1] || text[1]==d[1] || text[1]==e[1]){
+        cout<<"YES"<<endl;
+        return 0;
+    }
+    else if(text[0]==a[0]||text[0]==b[0]||text[0]==c[0] || text[0]==d[0] || text[0]==e[0]){
+        cout<<"YES"<<endl;
+        return 0;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
+}

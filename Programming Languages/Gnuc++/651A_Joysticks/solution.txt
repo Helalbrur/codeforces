@@ -1,0 +1,33 @@
+# Joysticks (CF 651A)
+# Rating  : 1100
+# Tags    : dp, greedy, implementation, math
+# Lang    : GNU C++
+# Solved  : 2017-04-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/651/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int dp[1001][1001];
+int f(int a,int b)
+{
+     int mn=min(a,b);
+    int mx=max(a,b);
+    if(mn<=0)
+        return 0;
+    if(dp[mx][mn]!=-1)
+        return dp[mx][mn];
+    return dp[mx][mn]=max(f(a+1,b-2),f(a-2,b+1))+1;
+}
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    memset(dp,-1,sizeof dp);
+    if(a==1 && b==1)
+    {
+        cout<<0<<endl;
+        return 0;
+    }
+    cout<<f(a,b)<<endl;
+}

@@ -1,0 +1,50 @@
+# Parity Alternated Deletions (CF 1144B)
+# Rating  : 900
+# Tags    : greedy, implementation, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-04-08
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1144/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+2];
+    vector<int> c,d;
+    int c_sum=0,d_sum=0;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        if(a[i]%2==0){
+            c.push_back(a[i]);
+            c_sum+=a[i];
+        }else{
+            d.push_back(a[i]);
+            d_sum+=a[i];
+        }
+    }
+    sort(c.begin(),c.end(),greater<int>());
+    sort(d.begin(),d.end(),greater<int>());
+    int m=0;
+    int c_s=c.size();
+    int d_s=d.size();
+        if(c_s==d_s){
+        m=c_s;
+    }
+    else{
+        m=min(c_s,d_s)+1;
+    }
+    //cout<<c_sum<<" "<<d_sum<<" "<<m<<endl;
+    for(int i=0;i<m;i++){
+        if(i<c_s){
+            c_sum-=c[i];
+                    }
+        if(i<d_s){
+            d_sum-=d[i];
+        }
+        //cout<<c_sum<<" "<<d_sum<<endl;
+    }
+    cout<<max(c_sum,d_sum)<<endl;
+    }

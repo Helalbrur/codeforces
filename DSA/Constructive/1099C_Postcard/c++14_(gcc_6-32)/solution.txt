@@ -1,0 +1,80 @@
+# Postcard (CF 1099C)
+# Rating  : 1200
+# Tags    : constructive algorithms, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-08
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1099/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+ int main(){
+       char text[210],f[210];
+   cin>>text;
+   int k;
+   cin>>k;
+   int len=strlen(text);
+   char l;
+   int pos=0,j=0,cnt=0,ni=0,pi=0;
+    map<int,int> mp;
+   for(int i=0;i<len;i++){
+                if(text[i]=='*' || text[i]=='?'){
+            cnt++;
+            mp[j-1]=1;
+            if(text[i]=='*' && ni==0){
+                l=text[i];
+                pos=j-1;
+                pi=i;
+                ni++;
+            }
+        }
+        else {
+            f[j++]=text[i];
+        }
+           }
+      if((ni==0)&& k>len-cnt){
+        cout<<"Impossible"<<endl;
+        return 0;
+   }
+   if((len-2*cnt)>k){
+        cout<<"Impossible"<<endl;
+        return 0;
+   }
+   if(j<k){
+        int x=k-j,m=0;
+        char ff[210];
+        for(int i=0;i<=pos;i++){
+            ff[m++]=f[i];
+        }
+        for(int i=0;i<x;i++){
+            ff[m++]=text[pi-1];
+        }
+        for(int i=pos+1;i<j;i++){
+            ff[m++]=f[i];
+        }
+        ff[m]='\0';
+        cout<<ff<<endl;
+       // cout<<j<<" "<<m<<endl;
+   }
+   else if(j>k){
+        int x=k-j,m=0,p=j-k;
+        char ff[210];
+        for(int i=0;i<j;i++){
+            if(mp.find(i)==mp.end()){
+                ff[m++]=f[i];
+            }
+            else if(p>0){
+                 p--;
+            }else{
+                ff[m++]=f[i];
+                           }
+        }
+                ff[m]='\0';
+        cout<<ff<<endl;
+        //cout<<j<<" "<<m<<endl;
+   }
+   else{
+        f[j]='\0';
+        cout<<f<<endl;
+   }
+}

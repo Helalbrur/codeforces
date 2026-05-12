@@ -1,0 +1,27 @@
+# Police Recruits (CF 427A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/427/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int c=0;
+    int cnt=0;
+    while(n--){
+        int a;
+        cin>>a;
+        c+=a;
+        if(c<0){
+            cnt++;
+            c=0;
+        }
+    }
+    cout<<cnt<<endl;
+}

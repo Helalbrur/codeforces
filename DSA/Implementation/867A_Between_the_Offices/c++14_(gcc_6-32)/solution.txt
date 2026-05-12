@@ -1,0 +1,35 @@
+# Between the Offices (CF 867A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-01
+# Attempt : #1
+# URL     : https://codeforces.com/contest/867/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    string a;
+    cin>>a;
+    int f=0,s=0;
+    for(int i=0;i<n;i++){
+        if(a[i]=='F'){
+            if(i+1<n && a[i+1]=='S'){
+                s++;
+            }
+        }
+        else{
+           if(i+1<n && a[i+1]=='F'){
+                f++;
+           }
+        }
+    }
+     if(f>s){
+        cout<<"YES"<<endl;
+    }
+    else{
+        cout<<"NO"<<endl;
+    }
+ }

@@ -1,0 +1,39 @@
+# Game with string (CF 1104B)
+# Rating  : 1200
+# Tags    : data structures, implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-01-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1104/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+string text;
+int findCon(){
+    int len=text.length();
+        for(int i=1;i<len;i++){
+        if(text[i]==text[i-1]){
+            text.erase (i-1,2);                        
+            return 1;
+        }
+    }
+    return -1;
+    }
+int main(){
+          cin>>text;
+     int cnt=0,s=1;
+          while(s!=-1){
+        int a=findCon();
+        if(a==1){
+            cnt++;
+                               }
+        else{
+            s=-1;
+        }
+                     }
+     if(cnt%2==1){
+        cout<<"Yes"<<endl;
+     }else{
+         cout<<"No"<<endl;
+     }
+     }

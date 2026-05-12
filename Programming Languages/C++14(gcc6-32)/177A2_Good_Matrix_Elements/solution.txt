@@ -1,0 +1,38 @@
+# Good Matrix Elements (CF 177A2)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/177/problem/A2
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n+2][n+2];
+    int sum=0;
+    for(int i=1;i<=n;i++){
+        for(int j=1;j<=n;j++){
+            cin>>a[i][j];
+        }
+    }
+     int c=(n+1)/2;
+    for(int i=n;i>=1;i--){
+        sum+=a[n-i+1][i];
+    }
+    for(int i=1;i<=n;i++){
+        if(i!=c){
+            sum+=a[i][i];
+        }
+     }
+     for(int i=1;i<=n;i++){
+        if(i!=c){
+            sum+=a[i][c];
+            sum+=a[c][i];
+        }
+    }
+    cout<<sum<<endl;
+ }

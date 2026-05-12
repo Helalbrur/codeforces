@@ -1,0 +1,33 @@
+# Reachable Numbers (CF 1157A)
+# Rating  : 1100
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-04-27
+# Attempt : #2
+# URL     : https://codeforces.com/contest/1157/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+ map<int,int> mp;
+int f(int n){
+    n++;
+    while(n%10==0){
+        n=n/10;
+            }
+    return n;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int cnt=0;
+       while(true){
+        if(mp[n]>0){
+            break;
+        }
+        mp[n]++;
+        cnt++;
+        n=f(n);
+            }
+    cout<<cnt<<endl;
+}

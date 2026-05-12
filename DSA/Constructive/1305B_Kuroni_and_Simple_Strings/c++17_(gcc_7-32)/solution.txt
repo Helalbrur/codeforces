@@ -1,0 +1,40 @@
+# Kuroni and Simple Strings (CF 1305B)
+# Rating  : 1200
+# Tags    : constructive algorithms, greedy, strings, two pointers
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-03-03
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1305/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    vector<int> open,close;
+    for(int i=0;i<s.length();i++){
+        if(s[i]=='(') open.push_back(i+1);
+        else close.push_back(i+1);
+    }
+    int i=0;
+    int j=close.size()-1;
+    vector<int> index;
+    while(i<open.size() && j>=0 && open[i]<close[j]){
+        index.push_back(open[i]);
+        index.push_back(close[j]);
+        i++;
+        j--;
+    }
+    if(index.size()){
+         sort(index.begin(),index.end());
+        cout<<1<<"\n";
+        cout<<index.size()<<"\n";
+        for(int a: index){
+            cout<<a<<" ";
+        }
+        cout<<"\n";
+    }else{
+        cout<<0<<"\n";
+    }
+ }

@@ -1,0 +1,32 @@
+# Fingerprints (CF 994A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/994/problem/A
+
+#include<iostream>
+#include<string.h>
+using namespace std;
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int a[13];
+    memset(a,0,sizeof(a));
+    int b[n+3],c;
+    for(int i=1;i<=n;i++){
+        cin>>b[i];
+    }
+    for(int i=1;i<=m;i++){
+        cin>>c;
+        a[c]=1;
+    }
+    for(int i=1;i<=n;i++){
+        if(a[b[i]]==1){
+            cout<<b[i]<<" ";
+        }
+    }
+    cout<<endl;
+}

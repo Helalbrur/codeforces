@@ -1,0 +1,23 @@
+# Wrong Subtraction (CF 977A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-01
+# Attempt : #1
+# URL     : https://codeforces.com/contest/977/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+   cin>>n>>k;
+   while(k--){
+        if(n%10){
+            n--;
+        }else{
+            n=n/10;
+        }
+   }
+   cout<<n<<endl;
+ }

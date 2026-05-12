@@ -1,0 +1,39 @@
+# Bus to Udayland (CF 711A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-06
+# Attempt : #1
+# URL     : https://codeforces.com/contest/711/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    string a[n+3];
+    bool ok=false;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+        if(ok==false){
+            if(a[i][0]=='O' && a[i][1]=='O'){
+                a[i][0]='+';
+                a[i][1]='+';
+                ok=true;
+            }else if(a[i][3]=='O' && a[i][4]=='O'){
+                 a[i][3]='+';
+                 a[i][4]='+';
+                 ok=true;
+            }
+        }
+    }
+    if(ok==true){
+        cout<<"YES"<<endl;
+        for(int i=0;i<n;i++){
+            cout<<a[i]<<endl;
+        }
+    }else{
+        cout<<"NO"<<endl;
+    }
+}

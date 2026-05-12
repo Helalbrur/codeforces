@@ -1,0 +1,16 @@
+# Soldier and Bananas (CF 546A)
+# Rating  : 800
+# Tags    : brute force, implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/546/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int k,n,w;
+    cin>>k>>n>>w;
+    cout<<max(((w*(w+1))/2)*k-n,0)<<endl;
+}

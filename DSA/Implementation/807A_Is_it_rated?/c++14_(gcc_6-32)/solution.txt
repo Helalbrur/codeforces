@@ -1,0 +1,39 @@
+# Is it rated? (CF 807A)
+# Rating  : 900
+# Tags    : implementation, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-11
+# Attempt : #1
+# URL     : https://codeforces.com/contest/807/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+//typedef unsigned long long ll;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    int n;
+    cin>>n;
+    bool rat=false,may=false;
+    int a[n+5],b[n+5];
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i]>>b[i];
+        if(a[i]!=b[i])
+            rat=true;
+        if(i>0 && a[i-1]<a[i])
+            may=true;
+    }
+    if(rat)
+    {
+        cout<<"rated"<<endl;
+        return 0;
+    }
+    if(may)
+    {
+           cout<<"unrated"<<endl;
+        return 0;
+    }
+     cout<<"maybe"<<endl;
+}

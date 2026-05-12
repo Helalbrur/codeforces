@@ -1,0 +1,37 @@
+# Distinct Digits (CF 1228A)
+# Rating  : 800
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-09-29
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1228/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+bool f(int a){
+    int x[11];
+    memset(x,0,sizeof(x));
+    while(a){
+        int r=a%10;
+        x[r]++;
+        a=a/10;
+    }
+    for(int i=0;i<=9;i++){
+        if(x[i]>1){
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int a,b;
+    cin>>a>>b;
+    for(int i=a;i<=b;i++){
+        if(f(i)){
+            cout<<i<<endl;
+            return 0;
+        }
+    }
+    cout<<"-1"<<endl;
+}

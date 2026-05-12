@@ -1,0 +1,16 @@
+# Domino piling (CF 50A)
+# Rating  : 800
+# Tags    : greedy, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-22
+# Attempt : #1
+# URL     : https://codeforces.com/contest/50/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    cout<<(n*m)/2<<endl;
+}

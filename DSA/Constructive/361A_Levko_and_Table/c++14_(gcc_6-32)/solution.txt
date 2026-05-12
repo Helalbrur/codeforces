@@ -1,0 +1,32 @@
+# Levko and Table (CF 361A)
+# Rating  : 800
+# Tags    : constructive algorithms, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-04-25
+# Attempt : #1
+# URL     : https://codeforces.com/contest/361/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    for(int i=1;i<=n;i++)
+    {
+        for(int j=1;j<=n;j++)
+        {
+            if(j>1)
+                cout<<" ";
+            if((i==j))
+            {
+                cout<<k-n+1;
+            }
+            else
+            {
+                cout<<1;
+            }
+        }
+        cout<<endl;
+    }
+}

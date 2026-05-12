@@ -1,0 +1,43 @@
+# Ehab Fails to Be Thanos (CF 1174A)
+# Rating  : 1000
+# Tags    : constructive algorithms, greedy, sortings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-06-03
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1174/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[n*2+5];
+    for(int i=1;i<=2*n;i++)
+    {
+                cin>>a[i-1];
+    }
+    sort(a,a+(2*n));
+    long int sum1=0,sum2=0;
+    for(int i=0;i<n;i++){
+        sum1+=a[i];
+        //cout<<a[i]<<" ";
+    }
+    //cout<<endl<<sum1<<endl;
+    for(int i=n;i<n*2;i++){
+        sum2+=a[i];
+        //cout<<a[i]<<" ";
+    }
+    //cout<<endl<<sum2<<endl;
+    if(sum1==sum2){
+        cout<<"-1"<<endl;
+    }else{
+        for(int i=0;i<n;i++){
+            cout<<a[i]<<" ";
+        }
+        for(int i=n;i<2*n;i++){
+            cout<<a[i]<<" ";
+        }
+        cout<<endl;
+    }
+    }

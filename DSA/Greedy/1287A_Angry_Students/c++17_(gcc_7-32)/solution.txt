@@ -1,0 +1,47 @@
+# Angry Students (CF 1287A)
+# Rating  : 800
+# Tags    : greedy, implementation
+# Lang    : C++17 (GCC 7-32)
+# Solved  : 2020-01-05
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1287/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int k;
+        cin>>k;
+        string a;
+        cin>>a;
+        int cnt=0;
+        for(int i=0;i<k;i++){
+            if(a[i]=='A'){
+                cnt++;
+            }
+        }
+        int c=0;
+        int p=-1;
+        for(int i=0;i<k;i++){
+            if(a[i]=='A' || i==k-1){
+                if(p!=-1){
+                    int x=i-p;
+                    if(a[i]=='A'){
+                        x--;
+                    }
+                    c=max(c,max(0,x));
+                }
+                 p=i;
+            }
+            //cout<<c<<" "<<p<<endl;
+        }
+        if(cnt==k){
+            cout<<0<<endl;
+        }else{
+            cout<<c<<endl;
+        }
+     }
+}

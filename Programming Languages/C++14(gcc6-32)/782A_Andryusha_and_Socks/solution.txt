@@ -1,0 +1,50 @@
+# Andryusha and Socks (CF 782A)
+# Rating  : 800
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-03-05
+# Attempt : #1
+# URL     : https://codeforces.com/contest/782/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int a[3*n+3];
+    int b[3*n+3];
+    memset(b,0,sizeof b);
+    int j=1;
+    map<int,int> mp;
+    for(int i=1;i<=n;i++)
+    {
+        int x,y;
+        cin>>x>>y;
+        a[j++]=x;
+        a[j++]=y;
+        b[x]++;
+        b[y]++;
+        if(b[x]>1)
+            mp[x]++;
+        if(b[y]>1)
+            mp[y]++;
+    }
+    int mx=0,tb=0;
+    for(int i=1;i<=n*2;i++)
+    {
+        if(b[a[i]]>1)
+        {
+            tb++;
+            b[a[i]]--;
+            mx=max(mx,tb);
+        }
+        else if(mp.find(b[a[i]])==mp.end())
+        {
+            continue;
+        }
+        else
+            tb--;
+    }
+    cout<<mx<<endl;
+}

@@ -1,0 +1,68 @@
+# From S To T (CF 1194C)
+# Rating  : 1300
+# Tags    : implementation, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-14
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1194/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        string s,t,p;
+        cin>>s;
+        cin>>t;
+        cin>>p;
+                int s_a[27],t_a[27],p_a[27];
+        memset(s_a,0,sizeof(s_a));
+        memset(t_a,0,sizeof(t_a));
+        memset(p_a,0,sizeof(p_a));
+        for(int i=0;i<s.length();i++){
+            s_a[s[i]-'a']++;
+        }
+        for(int i=0;i<p.length();i++){
+            p_a[p[i]-'a']++;
+        }
+        for(int i=0;i<t.length();i++){
+            t_a[t[i]-'a']++;
+        }
+        int flag=0;
+        for(int i=0;i<26;i++){
+            if(s_a[i]+p_a[i]<t_a[i]){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0){
+                            for(int j=0;j<t.length();j++){
+                   if(j<s.length()){
+                                               if(t[j]!=s[j]){
+                                                         if(p_a[t[j]-'a']>0){
+                                string ch;
+                                ch+=t[j];
+                                s=s.insert(j,ch);
+                                                            }
+                        }
+                                          }else{
+                        if(p_a[t[j]-'a']>0){
+                                                                string ch;
+                                ch+=t[j];
+                                s=s.insert(j,ch);
+                                                            }
+                   }
+                }
+                       if(s==t){
+                cout<<"YES"<<endl;
+            }else{
+                cout<<"NO"<<endl;
+            }
+                    }
+        else{
+            cout<<"NO"<<endl;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+# 3-palindrome (CF 805B)
+# Rating  : 1000
+# Tags    : constructive algorithms
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-10
+# Attempt : #1
+# URL     : https://codeforces.com/contest/805/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,x=0,y=0;
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        if(x<2)
+        {
+            cout<<"a";
+            x++;
+            y=0;
+        }
+        else if(y<2)
+        {
+            cout<<"b";
+            y++;
+        }
+        if(y==2)
+            x=0;
+     }
+}

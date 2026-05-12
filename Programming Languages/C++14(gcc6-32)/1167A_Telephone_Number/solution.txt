@@ -1,0 +1,38 @@
+# Telephone Number (CF 1167A)
+# Rating  : 800
+# Tags    : brute force, greedy, strings
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-19
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1167/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        if(n<11){
+            cout<<"NO"<<endl;
+        }else{
+            int l=n-10;
+            bool ok=false;
+            for(int i=0;i<l;i++){
+                if(s[i]=='8'){
+                    ok=true;
+                    break;
+                }
+            }
+            if(ok==true){
+                cout<<"YES"<<endl;
+            }else{
+                cout<<"NO"<<endl;
+            }
+        }
+    }
+}

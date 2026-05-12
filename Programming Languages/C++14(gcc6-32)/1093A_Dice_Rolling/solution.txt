@@ -1,0 +1,27 @@
+# Dice Rolling (CF 1093A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-11-21
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1093/problem/A
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int cnt=0;
+        int a=n/7;
+        cnt+=a;
+        n=n-a*7;
+        if(n){
+            cnt++;
+        }
+        cout<<cnt<<endl;
+     }
+}

@@ -1,0 +1,36 @@
+# Yet Another Broken Keyboard (CF 1272C)
+# Rating  : 1200
+# Tags    : combinatorics, dp, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-12-12
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1272/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,k;
+    cin>>n>>k;
+    string a;
+    cin>>a;
+    int b[27];
+    memset(b,0,sizeof(b));
+    for(int i=0;i<k;i++){
+        char c;
+        cin>>c;
+        b[c-'a']++;
+    }
+    int cnt=0;
+    int64_t s=0;
+    for(int i=0;i<n;i++){
+        if(b[a[i]-'a']>0){
+            cnt++;
+        }
+        else{
+            cnt=0;
+        }
+        s+=cnt;
+    }
+    cout<<s<<endl;
+}

@@ -1,0 +1,47 @@
+# Not Afraid (CF 787B)
+# Rating  : 1300
+# Tags    : greedy, implementation, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-03-23
+# Attempt : #1
+# URL     : https://codeforces.com/contest/787/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m;
+    //freopen("input.txt","r+",stdin);
+    cin>>n>>m;
+    int flag[m+5];
+    memset(flag,0,sizeof flag);
+    for(int i=1;i<=m;i++)
+    {
+        int k;
+        cin>>k;
+        int a;
+        map<int,int>mp;
+        for(int j=1;j<=k;j++)
+        {
+            cin>>a;
+            mp[a]++;
+            if(mp.find(-a)==mp.end())
+            {
+                flag[i]=flag[i];
+            }
+            else
+            {
+                flag[i]=1;
+            }
+        }
+    }
+    for(int i=1;i<=m;i++)
+    {
+        if(flag[i]==0)
+        {
+            cout<<"YES"<<endl;
+            return 0;
+        }
+    }
+    cout<<"NO"<<endl;
+}

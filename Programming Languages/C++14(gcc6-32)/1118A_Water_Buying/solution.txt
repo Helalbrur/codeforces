@@ -1,0 +1,24 @@
+# Water Buying (CF 1118A)
+# Rating  : 800
+# Tags    : math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-02-19
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1118/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    uint64_t q,n,a,b;
+    cin>>q;
+    for(uint64_t i=1;i<=q;i++){
+       cin>>n>>a>>b;
+        if(n%2==0){
+            cout<<min((n*a),((n/2)*b))<<endl;
+        }else{
+            uint64_t r=min(((n-1)*a),((n/2)*b));
+            r+=a;
+            cout<<r<<endl;
+        }
+    }
+}

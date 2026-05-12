@@ -1,0 +1,35 @@
+# Sport Mafia (CF 1195B)
+# Rating  : 1000
+# Tags    : binary search, brute force, math
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-07-17
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1195/problem/B
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+        long long int n,k;
+    cin>>n>>k;
+    long long int res=((n*(n-1))/2)-k;
+    long long p=0,sum=0;
+    int flag=0;
+    for(long long int i=1;i<=n;i++){
+       sum+=i;
+       if(sum>=k && flag==0){
+            flag=1;
+            sum=sum-k;
+       }
+       if(flag==1 ){
+            if(sum==(n-i)){
+                cout<<n-i<<endl;
+                return 0;
+            }
+            else if(sum>n-i){
+                cout<<n-i<<endl;
+                return 0;
+            }
+       }
+    }
+ }

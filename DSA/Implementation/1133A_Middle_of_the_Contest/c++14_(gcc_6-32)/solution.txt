@@ -1,0 +1,28 @@
+# Middle of the Contest (CF 1133A)
+# Rating  : 1000
+# Tags    : implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2019-03-07
+# Attempt : #1
+# URL     : https://codeforces.com/contest/1133/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    //cout<<1<<endl;
+    int h1,h2,m1,m2;
+    scanf("%d:%d",&h1,&m1);
+    scanf("%d:%d",&h2,&m2);
+    int total=h1*60+m1+h2*60+m2;
+    total=total/2;
+    int h=total/60;
+    int m=total-h*60;
+    if(h<10){
+        cout<<"0";
+   }
+   cout<<h<<":";
+   if(m<10){
+    cout<<"0";
+   }
+   cout<<m<<endl;
+ }

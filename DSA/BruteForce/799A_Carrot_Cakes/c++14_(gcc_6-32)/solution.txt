@@ -1,0 +1,36 @@
+# Carrot Cakes (CF 799A)
+# Rating  : 1100
+# Tags    : brute force, implementation
+# Lang    : C++14 (GCC 6-32)
+# Solved  : 2017-05-11
+# Attempt : #1
+# URL     : https://codeforces.com/contest/799/problem/A
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    int n,t,k,d;
+    cin>>n>>t>>k>>d;
+     if(k>=n)
+    {
+        cout<<"NO"<<endl;
+        return 0;
+    }
+    else if(t>d)
+    {
+        cout<<"YES"<<endl;
+        return 0;
+    }
+    int r=(n-k)%k;
+    if(r)
+        r=1;
+    if((((n-k)/k +r)*t)>d)
+    {
+        cout<<"YES"<<endl;
+        return 0;
+    }
+    cout<<"NO"<<endl;
+ }
